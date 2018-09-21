@@ -1,4 +1,4 @@
-header, hgroup, nav, footer, figure, figcaption, aside, section, article {
+/* header, hgroup, nav, footer, figure, figcaption, aside, section, article {
 	display: block;
 }
 
@@ -68,7 +68,6 @@ h2 {
 #wrapper nav {
 	background-color: #3399CC;
 	color: black;
-	/* height: auto; */
 }
 
 #contact {
@@ -98,4 +97,92 @@ footer {
 	font-style: italic;
 	padding-left: 1.5em;
 	padding-bottom: 1.5em;
+} */
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 1.5em;
+	padding: 0;
+}
+
+html {
+	background-image: url("ptrbackground.jpg");
+	/* background-repeat: no-repeat; */
+}
+
+#wrapper {
+	display: grid;
+	grid-template-rows: 8%;
+	grid-template-columns: 200px (600*0.7)%;
+	grid-template-areas:
+		"header header"
+		"nav main"
+		"nav footer";
+	background-color: rgba(255, 0, 0, 0.7);
+	height: 60%;
+	width: 80%;
+	min-width: 600px;
+	margin: 0;
+	padding: 0;
+}
+
+#wrapper header {
+	background-image: url("sunset.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	color: #fff;
+	grid-area: header;
+	text-align: left;
+	padding-left: 1.0em;
+	padding-bottom: 1.0em;
+}
+
+#wrapper nav {
+	background-color: #3399CC;
+	grid-area: nav;
+}
+
+#wrapper nav ul {
+	list-style: none;
+	list-style-type: none;
+}
+
+#wrapper nav ul li {
+	font-size: 1.3em;
+	margin: 0 0 3px 0;
+}
+
+#wrapper nav ul li a {
+	color: #000000;
+	text-decoration: none;
+}
+
+/* nav a:visited {
+	color: #FFFFFF;
+}
+nav a:hover {
+	color: #FFFFFF;
+} */
+
+#content {
+	background-color: #FFFFFF;
+	grid-area: main;
+	padding-left: 2.0em;
+}
+
+#content h2 {
+	color: #3399CC;
+}
+
+.resort {
+	color: #3399CC;
+}
+
+#wrapper footer {
+	background-color: #FFFFFF;
+	font-size: 1.0em;
+	font-style: italic;
+	padding-left: 1.5em;
+	padding-bottom: 0.5em;
 }
