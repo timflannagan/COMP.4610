@@ -1,169 +1,54 @@
-/* header, hgroup, nav, footer, figure, figcaption, aside, section, article {
-	display: block;
-}
-
 html, body {
 	height: 100%;
-}
-
-html {
-	background-image: url("ptrbackground.jpg");
-	height: auto;
+	width: 100%;
 }
 
 body {
-	margin-left: 15em;
-	margin-right: 15em;
-	background-color: #FFFFFF;
-	color: #666666;
-	font-family: Arial, Helvetica, sans-serif;
-	text-align: left;
-}
-
-header {
-	background: url("sunset.jpg");
-	background-size: 100%;
-	color: #FFFFFF;
-}
-
-nav ul {
-	font-size: 1.2em;
-}
-nav a:visited {
-	color: #344873;
-}
-nav a:hover {
-	color: #FFFFFF;
-}
-h1 {
-	margin-bottom: 0;
-	padding: 10px;
-}
-h2 {
-	color: #3399CC;
-}
-h1,
-h2 {
-	font-family: Georgia, "Times New Roman", serif;
-}
-
-#wrapper {
-	display: grid;
-	width: 100%;
-	grid-template: [header-left] "head head" 50px [header-right]
-								 [main-left] "nav main" 2fr [main-right]
-								 [footer-left] "nav foot" 30px [footer-right]
-								 / 120px 1fr;
-}
-
-#wrapper header {
-	grid-area: head;
-}
-
-#wrapper nav ul {
-	grid-area: nav;
-	list-style-type: none;
-}
-
-#wrapper nav {
-	background-color: #3399CC;
-	color: black;
-}
-
-#contact {
-	font-size: 90%;
-}
-
-#content {
-	padding-left: 1.5em;
-	padding-bottom: 1.5em;
-}
-
-#wrapper footer {
-	grid-area: foot;
-}
-
-.resort {
-	color: #4863A0;
-}
-
-dt {
-	color: #000033;
-}
-
-footer {
-	font-family: Georgia, "Times New Roman", serif;
-	font-size: 0.8em;
-	font-style: italic;
-	padding-left: 1.5em;
-	padding-bottom: 1.5em;
-} */
-
-html, body {
-	height: 100%;
-	width: 100%;
-	margin: 1.5em;
-	padding: 0;
-}
-
-html {
 	background-image: url("ptrbackground.jpg");
-	/* background-repeat: no-repeat; */
+	background-size: 100% 100%;
 }
 
 #wrapper {
 	display: grid;
-	grid-template-rows: 8%;
-	grid-template-columns: 200px (600*0.7)%;
+	grid-template-columns: 200px 80%;
 	grid-template-areas:
 		"header header"
 		"nav main"
 		"nav footer";
-	background-color: rgba(255, 0, 0, 0.7);
-	height: 60%;
-	width: 80%;
 	min-width: 600px;
-	margin: 0;
-	padding: 0;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 1.5em;
 }
 
 #wrapper header {
 	background-image: url("sunset.jpg");
-	background-repeat: no-repeat;
 	background-size: 100%;
 	color: #fff;
 	grid-area: header;
 	text-align: left;
 	padding-left: 1.0em;
-	padding-bottom: 1.0em;
 }
 
 #wrapper nav {
-	background-color: #3399CC;
+	background-color: rgb(157, 199, 225);
 	grid-area: nav;
 }
 
 #wrapper nav ul {
-	list-style: none;
 	list-style-type: none;
 }
 
 #wrapper nav ul li {
 	font-size: 1.3em;
-	margin: 0 0 3px 0;
+	margin: 0 0 2px 0;
 }
 
 #wrapper nav ul li a {
 	color: #000000;
+	font-weight: bold;
 	text-decoration: none;
 }
-
-/* nav a:visited {
-	color: #FFFFFF;
-}
-nav a:hover {
-	color: #FFFFFF;
-} */
 
 #content {
 	background-color: #FFFFFF;
@@ -173,16 +58,24 @@ nav a:hover {
 
 #content h2 {
 	color: #3399CC;
+	font-size: 2.0em;
 }
 
-.resort {
-	color: #3399CC;
+#content ul {
+	list-style-image: url("marker.gif");
 }
 
 #wrapper footer {
 	background-color: #FFFFFF;
+	color: grey;
 	font-size: 1.0em;
 	font-style: italic;
+	grid-area: footer;
 	padding-left: 1.5em;
 	padding-bottom: 0.5em;
+}
+
+.resort {
+	color: rgb(131, 160, 187);
+	font-weight: bold;
 }
