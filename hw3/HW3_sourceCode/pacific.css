@@ -5,16 +5,15 @@ html, body {
 
 body {
 	background-image: url("ptrbackground.jpg");
-	background-size: 100% 100%;
 }
 
 #wrapper {
 	display: grid;
-	grid-template-columns: 200px 80%;
+	grid-template-columns: 200px 2.4fr 1.6fr;
 	grid-template-areas:
-		"header header"
-		"nav main"
-		"nav footer";
+		"header header header"
+		"nav main resort"
+		"nav footer footer";
 	min-width: 600px;
 	width: 80%;
 	margin: 0 auto;
@@ -23,7 +22,7 @@ body {
 
 #wrapper header {
 	background-image: url("sunset.jpg");
-	background-size: 100%;
+	background-size: 80%;
 	color: #fff;
 	grid-area: header;
 	text-align: left;
@@ -35,11 +34,8 @@ body {
 	grid-area: nav;
 }
 
-#wrapper nav ul {
-	list-style-type: none;
-}
-
 #wrapper nav ul li {
+	list-style-type: none;
 	font-size: 1.3em;
 	margin: 0 0 2px 0;
 }
@@ -53,7 +49,13 @@ body {
 #content {
 	background-color: #FFFFFF;
 	grid-area: main;
+	grid-column: 2/4;
 	padding-left: 2.0em;
+}
+
+#content img {
+	float: left;
+	padding-right: 1.5em;
 }
 
 #content h2 {
