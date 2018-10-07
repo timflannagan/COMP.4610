@@ -1,5 +1,39 @@
-Lecture #8: CSS (5th lecture on CSS):
+Lecture #7: CSS (4th Lecture on CSS):
+- Key Concepts:
+  • The CSS box model
+  • Width-Height: pixels, ems, and percentages are most popular ways to specify size
+    - When you use percentages, the size of a box is relative to the size of
+      the browser window. If its a nested block, then that's relative to the
+      size of the outer block.
+  • Min-width, Max-width:
+    - Min-width: smallest size a box can be displayed at when the browser window
+      is narrow; max-width: maximum a box can stretch to when the browser window
+      is wide.
+  • Overflow: tells the browser what to do if the content contained within a box
+    is larger than the box itself.
+    - Hidden: property simply hides any extra content that does not fix in the box.
+    - Scroll: this property adds a scrollbar to the box so that user can scroll
+      to see the missing content.
+  • Borders:
+    1. Border-width
+    2. Border-style
+    3. Border-color
+    4. Border-radius
+    - Shorthand:
+      • border: 3px dotted #0088dd;
+  • Padding
+  • Centering-content using margin:
+    - Set left-margin, right-margin to auto if you want to center a box on the
+      page, or center it in an element that it sits in.
+    - Note: this will center the element if you set display: block.
+  • Display:
+    1. Inline: causes a block-level element to act like an inline element.
+    2. Block: causes an inline element to act like a block-level element.
+    3. Inline-block: causes a block-level element to flow like an inline element,
+       while retaining other features of a block-level element.
+    4. None: this hides an element from the page.
 
+Lecture #8: CSS (5th lecture on CSS):
 - Key Concepts in positioning elements:
   • Idea here is that we want to group a number of elements inside of a div
   1. Block level: starts on a new line
@@ -12,4 +46,4 @@ Lecture #8: CSS (5th lecture on CSS):
   • Relative Positioning
   • Absolute Positioning
   • Fixed Positioning
-  • Floating Elements 
+  • Floating Elements
