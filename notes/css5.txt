@@ -1,0 +1,15 @@
+Lecture #8: CSS (5th lecture on CSS):
+
+- Key Concepts in positioning elements:
+  • Idea here is that we want to group a number of elements inside of a div
+  1. Block level: starts on a new line
+     • Examples include: h1, p, ul, li by default
+  2. Inline: content flows in between surrounding text
+     • Examples include: img, b, and i
+
+- Controlling the position of the elements:
+  • Normal Flow
+  • Relative Positioning
+  • Absolute Positioning
+  • Fixed Positioning
+  • Floating Elements 
