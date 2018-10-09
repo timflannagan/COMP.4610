@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   height: 100%;
+  background-color: #00c1af;
   /* background: url("wheat.png"); */
   background-size: cover;
   font-family: 'Lato', sans-serif;
@@ -8,8 +9,8 @@ html, body {
 
 .header {
   padding: 20px 20px 20px 20px;
-  background-color: grey;
-  opacity: 0.4;
+  /* background-color: grey; */
+  /* opacity: 0.4; */
   text-align: right;
   font-size: 20px;
 }
@@ -21,10 +22,11 @@ html, body {
 
 .header ul li {
   display: inline;
+  font-weight: 800px;
 }
 
 .header ul a {
-  color: black;
+  color: white;
   font-weight: 400px;
   padding: 20px;
   text-decoration: none;
@@ -33,9 +35,9 @@ html, body {
 }
 
 .header ul a:hover {
-  color: grey;
+  color: #000;
   text-decoration-color: #000;
-  border-bottom: solid 1px grey;
+  border-bottom: solid 1px black;
   padding-bottom: 5px;
 }
 
@@ -43,6 +45,7 @@ html, body {
   height: 400px;
   width: 400px;
   color: #00c1af;
+  margin: 0 auto;
 }
 
 .content ul {
@@ -51,7 +54,11 @@ html, body {
 }
 
 .content img {
-  height: 400px;
-  width: 400px;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+  display: block;
   overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid white;
 }
