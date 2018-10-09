@@ -1,69 +1,21 @@
-/* html, body {
-  background-color: #000;
-}
-
-body {
-  font-family: 'Lato', sans-serif;
-  height: 100%;
-  width: 100%;
-  border: 2px solid #ccc;
-}
-
-.wrapper {
-  margin: 0 auto;
-  display: grid;
-  background-color: red;
-  grid-template-areas:
-    "header header",
-    "nav main",
-    "nav main";
-}
-
-.header {
-  height: 100px;
-  grid-area: header;
-  border: 1px solid white;
-  width: 100%;
-  text-align: center;
-}
-
-ul {
-  display: inline-block;
-  list-style-type: none;
-}
-
-ul a {
-  color: #fff;
-  display: inline-block;
-  text-decoration: none;
-} */
-
 html, body {
   margin: 0;
   height: 100%;
-  background: url("test-link.jpg") no-repeat;
+  /* background: url("wheat.png"); */
   background-size: cover;
+  font-family: 'Lato', sans-serif;
 }
 
-/* body {
-  border: 1px solid black;
-  min-width: 600px;
-  margin: 0 0;
-  background-color: #000;
-  overflow: hidden;
-} */
-
 .header {
-  /* border: 1px solid black; */
-  padding: 10px 10px 10px 10px;
+  padding: 20px 20px 20px 20px;
+  background-color: grey;
+  opacity: 0.4;
   text-align: right;
   font-size: 20px;
-  /* background-color: #ccc; */
 }
 
 .header ul {
   display: inline;
-  /* border: 1px solid black; */
   list-style-type: none;
 }
 
@@ -72,15 +24,34 @@ html, body {
 }
 
 .header ul a {
-  color: #A1321A;
+  color: black;
+  font-weight: 400px;
   padding: 20px;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .header ul a:hover {
+  color: grey;
   text-decoration-color: #000;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px grey;
   padding-bottom: 5px;
+}
+
+.content {
+  height: 400px;
+  width: 400px;
+  color: #00c1af;
+}
+
+.content ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.content img {
+  height: 400px;
+  width: 400px;
+  overflow: hidden;
 }
