@@ -1,3 +1,4 @@
+/* styling for the main portion of the page*/
 html, body {
   margin: 0;
   height: 100%;
@@ -30,6 +31,7 @@ html, body {
   line-height: 12px;
 }
 
+/* styling for contact form */
 .contact-form {
   margin: 0 auto;
   width: 60%;
@@ -74,21 +76,21 @@ input[type=submit]:hover {
   background-color: #07BAEE;
 }
 
+/* This is the css used to style the footer section */
 .footer {
-  display: inline;
-  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 .footer a {
   text-decoration: none;
-  list-style-type: none;
 }
 
-.github, .linkedin {
+.github, .linkedin, .email {
   color: black;
 }
 
-/* This is the css used to style the other pages */
+/* This is the css used to style the header */
 .header {
   padding: 20px 20px 20px 20px;
   text-align: right;
@@ -104,7 +106,6 @@ input[type=submit]:hover {
 
 .header ul li {
   display: inline;
-  font-weight: 800px;
 }
 
 .header ul a {

@@ -1,11 +1,11 @@
 <!--
-File: /~tflannag/public_html/tflannag_hw1.html
-COMP.4610 Assignment #2: Creating Your First Web Page
+File: /~tflannag/public_html/hw4/src/index.html
+COMP.4610 Assignment #4: Personal Website
 Tim Flannagan, UMass Lowell Computer Science, tflannag@cs.uml.edu
 Email: timothy_flannagan@student.uml.edu
 Affiliation: UMass Lowell student taking COMP.4610 GUI Programming I
 Origin release date: 09/11/18
-Last revision: 09/18/18
+Last revision: 10/10/18
 Purpose: Practice using basic html by creating your own personal website.
 -->
 
@@ -14,7 +14,7 @@ Purpose: Practice using basic html by creating your own personal website.
 	<head>
 		<meta charset="UTF-8">
 		<title>Tim Flannagan - Personal Website</title>
-		<link rel="stylesheet" href="../style/personal.css">
+		<link rel="stylesheet" href="../css/personal.css">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
 		<link rel="icon" href="../content/browser-icon.png">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,21 +35,33 @@ Purpose: Practice using basic html by creating your own personal website.
 			</div> <!-- header -->
 
 			<div class="content">
-				<img src="../content/linkedin_profile.jpeg"></img>
+				<img src="../content/linkedin_profile.jpeg" alt="Profile picture">
 				<h1>Hello, my name is Tim Flannagan.</h1>
 				<p>I'm a senior at UMass Lowell student studying computer science. I'm currently taking GUI I</p>
 				<p>I spent most of my days between working, studying, and hobbies. I'm big sports fan, especially
 					 all the Boston sports teams. I also spend my free time weight-lifting and hanging out with friends. </p>
-
-				<button class="button"><a href="about.html">Learn more about me.</a></button>
 			</div> <!-- content -->
+
+			<div id="about">
+				<a href="about.html">Learn more about me.</a>
+			</div> <!-- about-button -->
 
 			<div class="footer">
 				<a class="github" href="https://github.com/timflannagan1"><i class="fa fa-github fa-fw" style="font-size:24px"></i></a>
 				<a class="linkedin" href="https://linkedin.com/in/tim-flannagan"><i class="fa fa-linkedin fa-fw" style="font-size:24px"></i></a>
 				<a class="github" href="mailto:timothy_flannagan@student.uml.edu"><i class="fa fa-envelope fa-fw" style="font-size:24px"></i></a>
+				<p>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer">
+							<img style="border:0;width:88px;height:31px"
+									src="http://jigsaw.w3.org/css-validator/images/vcss"
+									alt="Valid CSS!" />
+					</a>
+					<a href="https://validator.w3.org/check?uri=referer"><img
+							src="http://www.w3.org/Icons/valid-html40"
+							alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+				</p>
 			</div> <!-- footer -->
-			
+
 		</div> <!-- wrapper -->
 	</body>
 </html>
