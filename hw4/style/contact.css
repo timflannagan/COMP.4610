@@ -1,40 +1,103 @@
 html, body {
-  height: 100%;
   margin: 0;
-}
-
-.contact-wrapper {
-  display: grid;
-  width: 100%;
   height: 100%;
-  grid-template-areas:
-    "header header"
-    "left right"
-    "footer footer";
-
-  grid-template-rows: 50px auto 50px;
-  grid-template-columns: 2fr 2fr;
+  background-color: rgb(237, 237, 237);
+  background-size: cover;
+  font-family: 'Lato', sans-serif;
+  overflow: hidden;
 }
 
-.left-content {
-  grid-area: left;
+.wrapper {
+  height: 100%;
+  border-radius: 5px;
+  padding: 20px;
+  /* transition: all 2s ease-in-out; */
+}
+
+.content h1, p {
   text-align: center;
-  margin: auto auto;
-  font-size: 45px;
-  border: 3px solid black;
+  line-height: 12px;
 }
 
-.right-content {
-  grid-area: right;
-  border: 3px solid black;
+.contact-form {
+  margin: 5px 100px 5px 100px;
 }
 
-header {
-  grid-area: header;
-  border: 3px solid black;
+::placeholder {
+  text-align: left;
+  color: black;
+  opacity: 0.6;
 }
 
-footer {
-  grid-area: footer;
-  border: 3px solid black;
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    height: 100px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #00c1af;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 6px auto 16px auto;
+    resize: horizontal;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #07BAEE;
+}
+
+input[type=submit] {
+  background-color: #00c1af;
+  color: white;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #07BAEE;
+}
+
+/* This is the css used to style the other pages */
+.header {
+  padding: 20px 20px 20px 20px;
+  text-align: right;
+  font-size: 20px;
+  margin-bottom: 50px;
+  resize: none;
+}
+
+.header ul {
+  display: inline;
+  list-style-type: none;
+}
+
+.header ul li {
+  display: inline;
+  font-weight: 800px;
+}
+
+.header ul a {
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.home {
+  float: left;
+}
+
+.home li {
+  color: black;
+}
+
+.header ul a:hover, .footer a:hover {
+  text-decoration-color: #000;
+  border-bottom: solid 1px black;
+  padding-bottom: 5px;
 }

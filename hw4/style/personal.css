@@ -1,10 +1,17 @@
 html, body {
   margin: 0;
   height: 100%;
-  min-width: 600px;
   background-color: #00c1af;
   background-size: cover;
   font-family: 'Lato', sans-serif;
+  min-height: 940px;
+  min-width: 600px;
+}
+
+.wrapper {
+  height: 100%;
+  min-height: 940px;
+  min-width: 600px;
 }
 
 .header {
@@ -40,16 +47,46 @@ html, body {
   color: black;
 }
 
-.header ul a:hover {
+.header ul a:hover, .footer a:hover {
   color: #000;
   text-decoration-color: #000;
   border-bottom: solid 1px black;
   padding-bottom: 5px;
 }
 
+button {
+  color: white;
+  font-family: 'Lato', sans-serif;
+  border-radius: 6px;
+  border: 2px solid white;
+  background: transparent;
+  text-decoration: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 15px 15px;
+}
+
+button a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+button a:visited {
+  color: white;
+}
+
+button a:hover {
+  color: black;
+}
+
+button:hover {
+  border: 2px solid black;
+}
+
 .content {
-  height: 500px;
-  width: 500px;
+  height: 80%;
+  min-width: 600px;
   color: white;
   margin: 0 auto;
   text-align: center;
@@ -72,7 +109,7 @@ html, body {
 
 .content p {
   font-size: 20px;
-  padding: 0;
+  padding: 0 400px 0 400px;
 }
 
 .content ul {
@@ -80,26 +117,16 @@ html, body {
   list-style-type: none;
 }
 
-.contact-redirect {
-  margin: auto;
-  margin-top: 35px;
-  margin-bottom: 35px;
-  padding: 15px 5px 15px 5px;
-  border: 5px solid white;
-  width: 50%;
-}
-
-.content-redict h2 {
-  margin-top: 20px;
-}
-
-.contact-redirect a {
-  font-size: 100%;
+.footer {
+  text-align: right;
+  font-size: 12px;
+  margin: 25px 32px;
+  padding-right: 25px;
   color: white;
-  line-height: 25px;
-  text-decoration: none;
+  text-align: center;
 }
 
-.contact-redict a:visited {
+.footer a {
+  text-decoration: none;
   color: white;
 }

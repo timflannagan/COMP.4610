@@ -4,18 +4,34 @@
     <meta charset="utf-8">
     <title>Contact Me.</title>
     <link rel="stylesheet" href="../style/contact.css">
-    <link rel="icon" href="../content/browser-icon.png">
   </head>
   <body>
-    <div class="contact-wrapper">
-      <header>This is a header.</header>
-      <div class="left-content">
-        <h1>Contact Me.</h1>
-      </div>
-      <div class="right-content">
-        <p>WERWEWR</p>
-      </div>
-      <footer>This is a footer</footer>
+
+    <div class="wrapper">
+      <div class="header">
+        <nav>
+          <ul>
+            <li class="home"><a href="index.html">Tim Flannagan</a><li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="../content/resume.pdf">Resume</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a>
+          </ul>
+        </nav>
+      </div> <!-- header -->
+
+      <div class="content">
+        <h1>Contact Me</h1>
+        <p>Leave me a message, click one of the links, or email me.</p>
+        <form class="contact-form" action="implement_eventually.html" method="post">
+          <input type="text" id="first-name" name="firstname" placeholder="Enter your first name: ">
+
+          <input type="text" id="last-name" name="lastname" placeholder="Enter your last name: ">
+
+          <textarea id="subject" name="contact" placeholder="Type message below:"></textarea>
+          <input type="submit" value="Submit">
+        </form> <!-- form -->
+      </div> <!-- content-->
     </div>
   </body>
 </html>
