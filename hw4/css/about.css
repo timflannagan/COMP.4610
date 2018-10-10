@@ -1,76 +1,99 @@
 html, body {
   margin: 0;
-  padding: 0;
   height: 100%;
+  background-color: rgb(237, 237, 237);
   font-family: 'Lato', sans-serif;
+  min-height: 940px;
+  min-width: 600px;
+  overflow: visible;
 }
-
-.main-wrapper {
-  display: grid;
-  width: 100%;
+.wrapper {
   height: 100%;
+  display: grid;
   grid-template-areas:
     "header header"
-    "left right"
+    "image about"
     "footer footer";
-
-  /* grid-template-rows: 50px auto 50px; */
-  grid-template-columns: 2fr 2fr;
+  grid-gap: 5px;
+  grid-template-columns: 400px 2fr;
+  grid-template-rows: 100px 2fr 80px;
 }
 
-.left-content {
-  grid-area: left;
-  height: 100%;
-  /* height: 400px; */
+/* styling for the left side of the grid, and image */
+.content-image {
+  display: block;
+  grid-area: image;
+  overflow: hidden;
+  margin-left: 15px;
+  margin-right: 15px;
+  min-height: 0;
+  min-width: 0;
 }
 
-.left-content img {
-  height: 80%;
-  /* height: 100%; */
-  overflow: none;
-  width: 100%;
-  border: 5px solid black;
-  /* height: 100%; */
+.content-image img {
+  border-radius: 5px;
+  height: 400px;
+  width: 400px;
 }
 
-.home {
-  float: left;
+/* styling for the right side of the grid, and about section*/
+.about-section {
+  grid-area: about;
+  overflow: hidden;
+  max-width: 800px;
+  min-height: 0;
+  min-width: 0;
+  font-size: 20px;
 }
 
-.home a:hover {
-  border: none;
+.about-section p {
+  padding-left: 20px;
 }
 
-.content-bio {
-  grid-area: right;
+.about-section h2:first-child {
+  line-height: 0;
+}
+
+.about-section h2:not(.schedule) {
+  padding-top: 20px;
+  line-height: 10px;
   text-align: center;
-  margin: 0 auto;
 }
 
+.schedule {
+  /* padding-left: 20px; */
+  margin-top: 50px;
+  line-height: 10px;
+  text-align: center;
+}
+
+.about-section .schedule-list li {
+  /* list-style-type: circle; */
+  list-style-type: none;
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* header styling section */
 .header {
-  grid-area: header;
   padding: 20px 20px 20px 20px;
+  grid-area: header;
   text-align: right;
   font-size: 20px;
   margin-bottom: 50px;
+  resize: none;
 }
 
-footer {
-  grid-area: footer;
-}
-
-ul {
+.header ul {
   display: inline;
-}
-
-ul li {
   list-style-type: none;
-  display: inline;
-  font-weight: 800px;
 }
 
-ul li a {
-  text-decoration: none;
+.header ul li {
+  display: inline;
+}
+
+.header ul a {
   color: black;
   padding: 20px;
   text-decoration: none;
@@ -78,9 +101,31 @@ ul li a {
   font-size: 15px;
 }
 
-ul a:hover {
-  color: #000;
+.home {
+  float: left;
+}
+
+.home li {
+  color: black;
+}
+
+.header ul a:hover, .footer a:hover {
   text-decoration-color: #000;
   border-bottom: solid 1px black;
   padding-bottom: 5px;
+}
+
+/* This is the css used to style the footer section */
+.footer {
+  grid-area: footer;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.github, .linkedin, .email {
+  color: black;
 }
