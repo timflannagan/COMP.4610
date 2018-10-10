@@ -5,13 +5,18 @@ html, body {
   background-size: cover;
   font-family: 'Lato', sans-serif;
   overflow: hidden;
+  min-height: 600px;
+  min-width: 800px;
 }
 
 .wrapper {
   height: 100%;
   border-radius: 5px;
-  padding: 20px;
   /* transition: all 2s ease-in-out; */
+}
+
+.content {
+  height: 80%;
 }
 
 .content h1, p {
@@ -20,7 +25,10 @@ html, body {
 }
 
 .contact-form {
-  margin: 5px 100px 5px 100px;
+  /* margin: 5px 100px 5px 100px; */
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 60%;
 }
 
 ::placeholder {
@@ -53,12 +61,19 @@ input[type=submit] {
   width: 100%;
   padding: 12px 20px;
   border: none;
+  font-size: 20px;
   border-radius: 4px;
   cursor: pointer;
 }
 
 input[type=submit]:hover {
   background-color: #07BAEE;
+}
+
+.footer {
+  display: inline;
+  /* margin: 50px auto 50px auto; */
+  margin: 0 auto;
 }
 
 /* This is the css used to style the other pages */
