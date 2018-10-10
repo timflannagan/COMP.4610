@@ -14,9 +14,9 @@ Purpose: Practice using basic html by creating your own personal website.
 	<head>
 		<meta charset="UTF-8">
 		<title>Tim Flannagan - Personal Website</title>
-		<link rel="stylesheet" href="personal.css">
+		<link rel="stylesheet" href="../style/personal.css">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
-		<link rel="icon" href="browser-icon.png">
+		<link rel="icon" href="../content/browser-icon.png">
 	</head>
 
 	<body>
@@ -24,8 +24,9 @@ Purpose: Practice using basic html by creating your own personal website.
 			<div class="header">
 				<nav>
 					<ul>
+						<li class="home"><a href="index.html">Tim Flannagan</a><li>
 						<li><a href="about.html">About</a></li>
-						<li><a href="resume.pdf">Resume</a></li>
+						<li><a href="../content/resume.pdf">Resume</a></li>
 						<li><a href="projects.html">Projects</a></li>
 						<li><a href="contact.html">Contact</a>
 					</ul>
@@ -33,11 +34,12 @@ Purpose: Practice using basic html by creating your own personal website.
 			</div> <!-- header -->
 
 			<div class="content">
-				<img src="linkedin_profile.jpeg"></img>
+				<img src="../content/linkedin_profile.jpeg"></img>
 				<h1>Hello, my name is Tim Flannagan.</h1>
-				<p>I'm a Umass Lowell student studying computer science.</p>
+				<p>I'm a Umass Lowell student studying computer science, and I'm taking GUI I.</p>
 				<p>I like watching all sports, especially Boston sport teams. I also
 					 spend my free time weight lifting and hanging out with friends.</p>
+				<h1 class="contact-redirect"><a href="about.html">Learn More About Me.</a></p>
 			</div> <!-- content -->
 		</div> <!-- wrapper -->
 	</body>

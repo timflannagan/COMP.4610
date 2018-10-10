@@ -1,0 +1,40 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.contact-wrapper {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-areas:
+    "header header"
+    "left right"
+    "footer footer";
+
+  grid-template-rows: 50px auto 50px;
+  grid-template-columns: 2fr 2fr;
+}
+
+.left-content {
+  grid-area: left;
+  text-align: center;
+  margin: auto auto;
+  font-size: 45px;
+  border: 3px solid black;
+}
+
+.right-content {
+  grid-area: right;
+  border: 3px solid black;
+}
+
+header {
+  grid-area: header;
+  border: 3px solid black;
+}
+
+footer {
+  grid-area: footer;
+  border: 3px solid black;
+}

@@ -1,36 +1,86 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
 }
 
 .main-wrapper {
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 2fr 2fr;
+  width: 100%;
+  height: 100%;
   grid-template-areas:
-    "header header",
-    "left-content right-content",
+    "header header"
+    "left right"
     "footer footer";
+
+  /* grid-template-rows: 50px auto 50px; */
+  grid-template-columns: 2fr 2fr;
 }
 
 .left-content {
-  grid-area: left-content;
+  grid-area: left;
+  height: 100%;
+  /* height: 400px; */
+}
+
+.left-content img {
+  height: 80%;
+  /* height: 100%; */
+  overflow: none;
+  width: 100%;
+  border: 5px solid black;
+  /* height: 100%; */
+}
+
+.home {
   float: left;
 }
 
-.content-bio {
-  grid-area: right-content;
-  float: right;
+.home a:hover {
+  border: none;
 }
 
-header {
-  width: 100%;
-  height: 100px;
-  padding: 10px;
+.content-bio {
+  grid-area: right;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.header {
   grid-area: header;
-  border: 1px solid red;
+  padding: 20px 20px 20px 20px;
+  text-align: right;
+  font-size: 20px;
+  margin-bottom: 50px;
 }
 
 footer {
   grid-area: footer;
+}
+
+ul {
+  display: inline;
+}
+
+ul li {
+  list-style-type: none;
+  display: inline;
+  font-weight: 800px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+ul a:hover {
+  color: #000;
+  text-decoration-color: #000;
+  border-bottom: solid 1px black;
+  padding-bottom: 5px;
 }

@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   height: 100%;
+  min-width: 600px;
   background-color: #00c1af;
   background-size: cover;
   font-family: 'Lato', sans-serif;
@@ -29,6 +30,14 @@ html, body {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 15px;
+}
+
+.home {
+  float: left;
+}
+
+.home li {
+  color: black;
 }
 
 .header ul a:hover {
@@ -63,9 +72,34 @@ html, body {
 
 .content p {
   font-size: 20px;
+  padding: 0;
 }
 
 .content ul {
   text-decoration: none;
   list-style-type: none;
+}
+
+.contact-redirect {
+  margin: auto;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  padding: 15px 5px 15px 5px;
+  border: 5px solid white;
+  width: 50%;
+}
+
+.content-redict h2 {
+  margin-top: 20px;
+}
+
+.contact-redirect a {
+  font-size: 100%;
+  color: white;
+  line-height: 25px;
+  text-decoration: none;
+}
+
+.contact-redict a:visited {
+  color: white;
 }
