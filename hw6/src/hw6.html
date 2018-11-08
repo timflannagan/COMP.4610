@@ -6,9 +6,14 @@
   </head>
   <body>
     <!--  Below is where the user enters the x, y parameters -->
-    <form id="dyn-table" action="index.html" method="post">
-      Rows: <input id="x-val" type="text" name="x-value" placeholder="Enter the number of rows"><br>
-      Columns: <input id="y-val" type="text" name="y-value" placeholder="Enter the number of columns."><br>
+    <form name="table">
+      Rows:
+      <input id="rows" type="text" name="rows" placeholder="Enter the number of rows"><br>
+      Columns:
+      <input id="cols" type="text" name="cols" placeholder="Enter the number of columns."><br>
+
+      <input type="submit" value="Submit">
+      <!-- <input type="text" name="name" id="uniqueID" value="value" /> -->
     </form>
     <script type="text/javascript" src="../js/hw6.js"></script>
   </body>
