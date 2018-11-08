@@ -24,3 +24,6 @@ for (var i = 0; i < elem_list.length; i++)
 {
   elem_list[i].className += "cool";
 }
+
+// add the number of items in the list to the heading
+document.getElementsByTagName('h2')[0].innerText = "Buy Groceries: " + elem_list.length; 
