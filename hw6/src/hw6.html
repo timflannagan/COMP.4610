@@ -2,19 +2,25 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/master.css">
     <title>HW6</title>
   </head>
   <body>
     <!--  Below is where the user enters the x, y parameters -->
     <form name="table">
-      Rows:
-      <input id="rows" type="text" name="rows" placeholder="Enter the number of rows"><br>
-      Columns:
-      <input id="cols" type="text" name="cols" placeholder="Enter the number of columns."><br>
+      Rows: <br>
+      <input id="row1" type="text" name="rows"><br>
+      <input id="row2" type="text" name="rows"><br>
 
-      <input type="submit" value="Submit">
-      <!-- <input type="text" name="name" id="uniqueID" value="value" /> -->
+      Columns: <br>
+      <input id="col1" type="text" name="cols"><br>
+      <input id="col2" type="text" name="cols"><br>
+      <input type="button" onclick="create_table()" value="Submit">
     </form>
+
+    <table id="my_table">
+    </table>
+
     <script type="text/javascript" src="../js/hw6.js"></script>
   </body>
 </html>
