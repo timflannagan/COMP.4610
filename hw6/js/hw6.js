@@ -1,55 +1,41 @@
-// get the values
-// function driver(some_obj) {
-//   // alert(some_obj.rows);
-//   var mul_table = document.getElementById('multable');
-//   var row1 = mul_table.insertRow(0);
-//   var col1 = row1.insertCol(0);
-//   col1.innerHTML = "first"
-//   // for (var i = 0; i < mul_table.length; i++) {
-//   //
-//   // }
-//
-//   // mul_table.innerHTML = "new cell!";
-// }
+function validate_input(row1, row2, col1, col2) {
+  if (row1.value > row2.value) {
+    row2.style.backgroundColor = "red";
+    alert('Upper bound row value needs to be less than lower bound row value');
+    return false;
+  }
 
-// need the table heading
+  if (col1.value > col2.value) {
+    col2.style.backgroundColor = "red";
+    alert("Upper bound col value needs to be less than lower bound col value");
+    return false;
+  }
 
-// function driver() {
-//   var table = "";+
-//
-//   for (var r = 0; r < 4; r++) {
-//     table += '<tr>';
-//
-//     for (var i = 0; i < 4; i++) {
-//       table += '<td>' + i + '</td>';
-//     }
-//
-//     table += '</tr>';
-//   }
-//
-//   document.write('<table>' + table + '</table>');
-// }
+  return true;
+}
 
 
 function create_table() {
   var table = document.getElementById('my_table');
-  var row1 = document.getElementById('row1').value;
-  var row2 = document.getElementById('row2').value;
-  var col1 = document.getElementById('col1').value;
-  var col2 = document.getElementById('col2').value;
+  var row1 = document.getElementById('row1');
+  var row2 = document.getElementById('row2');
+  var col1 = document.getElementById('col1');
+  var col2 = document.getElementById('col2');
 
-  var row_val = row1;
-  var col_val = col1;
+  var row_val = row1.value;
+  var col_val = col1.value;
 
-  // iterate over the values entered in the form data
-  for (var i = 0; i < (row2 - row1) + 1; i++) {
+  if (!validate_input(row1, row2, col1, col2)) {
+    // clear form data if invalid
+    return;
+  }
+
+  // iterate over the values entered in the form data: create row first then col data.
+  for (var i = 0; i < (row2.value - row1.value) + 1; i++) {
     var header_cell = document.createElement('TH');
     var curr_row = table.insertRow(i);
 
-    // header_cell.innerHTML = row_val;
-    // curr_row.appendChild(header_cell);
-
-    for (var j = 0; j < (col2 - col1) + 1; j++) {
+    for (var j = 0; j < (col2.value - col1.value) + 1; j++) {
       var curr_col = curr_row.insertCell(j);
 
       curr_col.innerHTML = row_val * col_val;
