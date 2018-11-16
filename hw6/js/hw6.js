@@ -31,8 +31,11 @@ function create_table() {
   var col_val = col1.value;
 
   if (!validate_input(row1, row2, col1, col2)) {
-    // To-Do: clear form data if invalid
     return;
+  }
+
+  if (table.rows.length) {
+    table.innerHTML = "";
   }
 
   var first_row = table.insertRow(0);
