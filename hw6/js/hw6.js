@@ -1,9 +1,34 @@
+/*
+Name: Tim Flannagan
+Email: timothy_flannagan@student.uml.edu
+Date: 11/15/18
+Class: GUI 1 (Fall 2018)
+
+Sources:
+1. NaN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN
+*/
+
 function validate_input(row1, row2, col1, col2) {
+  /* Validate the user input given the lower and upper boudns of row/column input */
+  if (isNaN(Number(row1)) || isNaN(Number(row2))) {
+    alert("Incorrect input entered for row bounds. Enter an integer");
+    return false;
+  }
+
+  if (isNaN(Number(col1)) || isNaN(Number(col2))) {
+    alert("Incorrect input entered for row bounds. Enter an integer");
+    return false;
+  }
+
   if (row1.value === "" || row2.value === "") {
     alert("Empty value(s) entered for row bounds.");
     return false;
   }
 
+  if (col1.value === "" || col2.value === "") {
+    alert("Empty value(s) entered for column bounds.");
+    return false;
+  }
   if (Number(row1.value) > Number(row2.value)) {
     row2.style.backgroundColor = "rgb(218, 143, 180)";
     alert('Upper bound row value needs to be less than lower bound row value');
@@ -21,6 +46,7 @@ function validate_input(row1, row2, col1, col2) {
 
 
 function create_table() {
+  /* Create a <table> given user input and populate cells with correct multiplication entry */
   var table = document.getElementById('my_table');
   var row1 = document.getElementById('row1');
   var row2 = document.getElementById('row2');
@@ -29,17 +55,20 @@ function create_table() {
 
   var row_val = row1.value;
   var col_val = col1.value;
+  var first_row = table.insertRow(0);
 
+  // check if user entered invalid input
   if (!validate_input(row1, row2, col1, col2)) {
-    return;
+    document.getElementById('form').reset();
+    return false;
   }
 
+  // check if there's already a table displayed on the page; reset the HTML
   if (table.rows.length) {
     table.innerHTML = "";
   }
 
-  var first_row = table.insertRow(0);
-
+  // populate the headings for the first row
   for (var i = 0; i < 1; i++) {
     for (var j = 0; j < (col2.value - col1.value) + 2; j++) {
       var first_col = first_row.insertCell();
@@ -58,10 +87,6 @@ function create_table() {
   // iterate over the values entered in the form data: create row first then col data.
   for (var i = 1; i < (row2.value - row1.value) + 2; i++) {
     var curr_row = table.insertRow(i);
-    // var row_header = document.createElement("TH");
-    //
-    // row_header.innerHTML = row_val;
-    // curr_row.appendChild(row_header);
 
     for (var j = 0; j < (col2.value - col1.value) + 2; j++) {
       var curr_col = curr_row.insertCell(j);
