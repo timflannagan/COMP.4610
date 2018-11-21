@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="shortcut icon" href="../externals/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <title>HW6</title>
+  </head>
+  <body>
+    <div class="container">
+      <!--  Below is where the user enters the x, y parameters -->
+      <h1>GUI Assignment #6: Creating an Interactive Dynamic Table</h1>
+      <form name="table" id="form">
+        <div class="rows">
+          Rows: <br>
+          <input id="row1" type="text" name="rows" placeholder="Enter row lower bound: "><br>
+          <input id="row2" type="text" name="rows" placeholder="Enter row upper bound: "><br>
+        </div>
+
+        <div class="cols">
+          Columns: <br>
+          <input id="col1" type="text" name="cols" placeholder="Enter column lower bound: "><br>
+          <input id="col2" type="text" name="cols" placeholder="Enter column upper bound: "><br>
+          <input id="submit" type="button" onclick="create_table()" value="Generate table: ">
+        </div>
+      </form>
+
+      <table id="my_table">
+      </table>
+
+      <script type="text/javascript" src="../js/hw6.js"></script>
+    </div> <!-- end container div-->
+
+  </body>
+</html>
