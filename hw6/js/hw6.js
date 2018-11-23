@@ -44,7 +44,6 @@ function validate_input(row1, row2, col1, col2) {
   return true;
 }
 
-
 function create_table() {
   /* Create a <table> given user input and populate cells with correct multiplication entry */
   var table = document.getElementById('my_table');

@@ -1,22 +1,24 @@
 /*
 Name: Tim Flannagan
 Email: timothy_flannagan@student.uml.edu
-Date: 11/15/18
+Date: 11/20/18
 Class: GUI 1 (Fall 2018)
+Assignment #6: Validate user input using jQuery
 
 Sources:
 1. NaN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN
+2. .validate() jQuery Plugin: https://jqueryvalidation.org/
 */
 
 function validate_input(row1, row2, col1, col2) {
   /* Validate the user input given the lower and upper boudns of row/column input */
-  if (isNaN(Number(row1)) || isNaN(Number(row2))) {
+  if (isNaN(row1.value) || isNaN(row2.value)) {
     alert("Incorrect input entered for row bounds. Enter an integer");
     return false;
   }
 
-  if (isNaN(Number(col1)) || isNaN(Number(col2))) {
-    alert("Incorrect input entered for row bounds. Enter an integer");
+  if (isNaN(col1.value) || isNaN(col2.value)) {
+    alert("Incorrect input entered for column bounds. Enter an integer");
     return false;
   }
 
@@ -44,7 +46,6 @@ function validate_input(row1, row2, col1, col2) {
   return true;
 }
 
-
 function create_table() {
   /* Create a <table> given user input and populate cells with correct multiplication entry */
   var table = document.getElementById('my_table');
@@ -57,15 +58,10 @@ function create_table() {
   var col_val = col1.value;
   var first_row = table.insertRow(0);
 
-  // check if user entered invalid input
-  if (!validate_input(row1, row2, col1, col2)) {
-    document.getElementById('form').reset();
-    return false;
-  }
-
   // check if there's already a table displayed on the page; reset the HTML
-  if (table.rows.length) {
-    table.innerHTML = "";
+  if (table.rows.length != 1) {
+    $('#my_table tbody').empty();
+    var first_row = table.insertRow(0);
   }
 
   // populate the headings for the first row
