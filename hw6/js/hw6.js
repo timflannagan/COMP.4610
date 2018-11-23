@@ -10,13 +10,13 @@ Sources:
 
 function validate_input(row1, row2, col1, col2) {
   /* Validate the user input given the lower and upper boudns of row/column input */
-  if (isNaN(Number(row1)) || isNaN(Number(row2))) {
+  if (isNaN(row1.value) || isNaN(row2.value)) {
     alert("Incorrect input entered for row bounds. Enter an integer");
     return false;
   }
 
-  if (isNaN(Number(col1)) || isNaN(Number(col2))) {
-    alert("Incorrect input entered for row bounds. Enter an integer");
+  if (isNaN(col1.value) || isNaN(col2.value)) {
+    alert("Incorrect input entered for column bounds. Enter an integer");
     return false;
   }
 
@@ -64,9 +64,12 @@ function create_table() {
   }
 
   // check if there's already a table displayed on the page; reset the HTML
-  if (table.rows.length) {
-    table.innerHTML = "";
+  if (table.rows.length != 1) {
+    $('#my_table tbody').empty();
+    var first_row = table.insertRow(0);
   }
+
+  // console.lo9g()
 
   // populate the headings for the first row
   for (var i = 0; i < 1; i++) {
