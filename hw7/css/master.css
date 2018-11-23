@@ -8,11 +8,14 @@ table {
 
 h1 {
   border-bottom: 2px solid white;
+  margin-left: 20px;
+  margin-top: 25px;
   display: inline;
 }
 
 body {
-  background: url("../externals/background.gif");
+  background: url("../externals/afterglob-background.jpg") no-repeat 20%;
+  background-position: right;
   color: white;
   font-family: 'Lato', sans-serif;
 }
@@ -26,6 +29,7 @@ body {
 
 input {
   margin-bottom: 10px;
+  margin-right: 10px;
   border-radius: 5px;
   height: 20px;
   width: 200px;

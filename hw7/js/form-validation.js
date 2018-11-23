@@ -13,26 +13,45 @@ Sources:
 5. https://stackoverflow.com/questions/18041140/jquery-validate-plugin-submithandler-delaying-form-submit
 */
 
+// $.validator.addMethod("upperbound_greater_than_lowerbound"), function(value, element) {
+//   return row1 > row2
+// }
+
+
+
 $(document).ready(function () {
+    $.validator.addMethod("row2_greater_row1", function(value, element) {
+        return row2 > row1
+    });
+
+    $.validator.addMethod("col2_greater_col1", function(value, element) {
+        return col2 > col1
+    });
 
     $('#myform').validate({
         rules: {
           /* Ensure the form input values are correctly inputted */
           row1: {
               required: true,
-              digits: true
+              digits: true,
+              range: [1, 100]
           },
           row2: {
               required: true,
-              digits: true
+              digits: true,
+              range: [Number(row1.value) + 1, 100],
+              row2_greater_row1: true
           },
           col1: {
               required: true,
-              digits: true
+              digits: true,
+              range: [1, 100]
           },
           col2: {
               required: true,
-              digits: true
+              digits: true,
+              range: [1, 100],
+              col2_greater_col1: true
           }
         },
         /* Output a relevant message based on the type of incorrect field entry. */
@@ -43,7 +62,9 @@ $(document).ready(function () {
           },
           row2: {
             required: "This is a required field!",
-            digits: "Enter an integer for the upper bound row value."
+            digits: "Enter an integer for the upper bound row value.",
+            row2_greater_row1: "You need to enter a value greater than row1."
+
           },
           col1: {
             required: "This is a required field!",
@@ -51,7 +72,8 @@ $(document).ready(function () {
           },
           col2: {
             required: "This is a required field!",
-            digits: "Enter an integer for the upper bound column value."
+            digits: "Enter an integer for the upper bound column value.",
+            col2_greater_col1: "You need to enter a value greater than col1."
           }
         }
     });
