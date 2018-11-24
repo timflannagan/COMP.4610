@@ -67,9 +67,10 @@ $(document).ready(function () {
           }
         },
         submitHandler: function (form) {
-            form.submit();
+            console.log('this ran');
+            $(form).submit();
         }
-    });
+    }); // end of form validation
 
     validator.form();
 });
