@@ -16,8 +16,8 @@ Sources:
 
 $(document).ready(function () {
     $.validator.addMethod("upperbound_greater_lowerbound", function (value, element, param) {
-              var $otherElement = $(param);
-              return parseInt(value, 10) > parseInt($otherElement.val(), 10);
+        /* Ensure that the user entered an upper bound value that's greater than the lower bound value. */
+        return parseInt(value, 10) > parseInt($(param).val(), 10);
     });
 
     var validator = $('#myform').validate({
