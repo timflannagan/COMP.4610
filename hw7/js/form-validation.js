@@ -26,23 +26,21 @@ $(document).ready(function () {
           row1: {
               required: true,
               digits: true,
-              range: [0, 100]
+              min: 1
           },
           row2: {
               required: true,
               digits: true,
-              range: [Number(row1.value) + 1, 100],
               upperbound_greater_lowerbound: "#row1"
           },
           col1: {
               required: true,
               digits: true,
-              range: [0, 100]
+              min: 1
           },
           col2: {
               required: true,
               digits: true,
-              range: [Number(col1.value) + 1, 100],
               upperbound_greater_lowerbound: "#col1"
           }
         },
@@ -72,6 +70,6 @@ $(document).ready(function () {
             form.submit();
         }
     });
-    
+
     validator.form();
 });
