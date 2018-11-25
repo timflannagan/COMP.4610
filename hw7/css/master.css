@@ -1,3 +1,8 @@
+/*
+Sources:
+1. https://stackoverflow.com/questions/14913677/jquery-validation-plugin-message-style
+*/
+
 table {
   width: 70%;
   height: 500px;
@@ -67,11 +72,23 @@ th {
   border: 1px solid white;
 }
 
-#submit {
+#submit-button {
   background-color: #008CBA;
   margin-top: 15px;
   border-radius: 5px;
   color: white;
   width: 200px;
   height: 25px;
+}
+
+span.arrow {
+    margin-left: 6px;
+    height:17px;
+    color: red;
+}
+label.error {
+    height:17px;
+    margin-left:9px;
+    padding:1px 5px 0px 5px;
+    font-size:small;
 }

@@ -66,6 +66,13 @@ function validate_form() {
             upperbound_greater_lowerbound: "You need to enter a value greater than col1."
           }
         },
+        errorPlacement: function(label, element) {
+            label.addClass('arrow');
+            label.insertAfter(element);
+        },
+
+        wrapper: 'span',
+
         submitHandler: function (form) {
             create_table()
         }
