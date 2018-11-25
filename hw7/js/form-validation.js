@@ -14,7 +14,7 @@ Sources:
 6. https://stackoverflow.com/questions/29451507/how-to-use-jquery-validator-to-determine-value-of-one-field-is-greater-than-anot
 */
 
-$(document).ready(function () {
+function validate_form() {
     $.validator.addMethod("upperbound_greater_lowerbound", function (value, element, param) {
         /* Ensure that the user entered an upper bound value that's greater than the lower bound value. */
         return parseInt(value, 10) > parseInt($(param).val(), 10);
@@ -67,10 +67,11 @@ $(document).ready(function () {
           }
         },
         submitHandler: function (form) {
-            console.log('this ran');
-            $(form).submit();
+            create_table()
         }
     }); // end of form validation
+}
 
-    validator.form();
+$(document).ready(function () {
+    validate_form()
 });
