@@ -19,6 +19,7 @@ Last Modified: 12/01/18
 
     <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+
     <script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript" src="../js/create_sliders.js"></script>
 
@@ -31,17 +32,22 @@ Last Modified: 12/01/18
 
             <form id="myform">
                 <div class="rows">
-                    Rows: <br>
+                    <input id="row1" type="text" name="row1" placeholder="Enter lower bound row value: ">
                     <div id="first-row"></div>
+
+                    <input id="row2" type="text" name="row2" placeholder="Enter upper bound row value: ">
                     <div id="second-row"></div>
-                 </div>
+                </div>
 
                 <div class="cols">
-                    Columns: <br>
+                    <input id="col1" type="text" name="col1" placeholder="Lower bound col value: ">
                     <div id="first-col"></div>
+
+                    <input id="col2" type="text" name="col2" placeholder="Upper bound col value: ">
                     <div id="second-col"></div>
-                    <input id="submit-button" type="submit" value="Generate table: ">
                 </div>
+
+                <input id="submit-button" type="submit" value="Generate table: ">
             </form>
 
             <table id="my_table">

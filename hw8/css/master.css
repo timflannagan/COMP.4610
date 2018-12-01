@@ -3,57 +3,56 @@ Sources:
 1. https://stackoverflow.com/questions/14913677/jquery-validation-plugin-message-style
 */
 
-table {
-  width: 70%;
-  height: 500px;
-  margin: 20px;
-  padding: 30px;
-  border-collapse: collapse;
-}
-
-h1 {
-  border-bottom: 2px solid white;
-  margin-left: 20px;
-  margin-top: 25px;
-  display: inline;
+html {
+    min-height: 100%;
+    position: relative;
 }
 
 body {
-  background: url("../externals/afterglob-background.jpg") no-repeat 20%;
-  background-position: right;
-  color: white;
-  font-family: 'Lato', sans-serif;
-}
-
-.ui-slider {
-    width: 250px;
-    margin-top: 35px;
-    margin-bottom: 35px;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    background: url("../externals/that_new_new.jpg") no-repeat 20%;
+    background-size: cover;
+    background-position: right;
+    color: white;
     font-family: 'Lato', sans-serif;
 }
 
-.ui-slider-handle {
-    padding: 5px;
-    margin: -5px;
-}
-
-.rows, .cols {
-  width: 100%;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 20px;
+#myform {
+    margin-top: 25px;
+    height: 450px;
+    width: 600px;
 }
 
 input {
-  margin-bottom: 10px;
-  margin-right: 10px;
-  border-radius: 5px;
-  height: 20px;
-  width: 200px;
+    margin: 15px;
+    height: 30px;
+    width: 40%;
 }
 
-h1 {
-  text-align: center;
+.ui-slider .ui-slider-handle {
+    width:2em;
+    left:-.6em;
+    /* text-decoration:none; */
+    text-align:center;
+}
+
+.ui-widget {
+    font-family: 'Lato', sans-serif;
+}
+
+.ui-widget-content {
+    background: blue;
+}
+
+table {
+    width: 70%;
+    height: 500px;
+    margin: 20px;
+    padding: 30px;
+    border-collapse: collapse;
 }
 
 table {
@@ -94,7 +93,7 @@ th {
 }
 
 span.arrow {
-    margin-left: 6px;
+    /* margin-left: 6px; */
     height:17px;
     color: red;
 }
@@ -102,5 +101,5 @@ label.error {
     height:17px;
     margin-left:9px;
     padding:1px 5px 0px 5px;
-    font-size:small;
+    font-size: medium;
 }

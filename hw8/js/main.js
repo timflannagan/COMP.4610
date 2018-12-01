@@ -13,36 +13,33 @@ Sources:
 $(document).ready(function () {
 	create_sliders()
 
-	$('#submit-button').click(function() {
+	if (validate_form()) {
 		create_table()
-	});
+	}
 
 });
 
 function create_table() {
 	/* Create a <table> given user input and populate cells with correct multiplication entry */
 	var table = document.getElementById('my_table');
-	var row1 = $('#first-row').slider("option", 'value');
-	var row2 = $('#first-row').slider("option", 'value');
-	var col1 = $('#first-row').slider("option", 'value');
-	var col2 = $('#first-row').slider("option", 'value');
+	var row1 = document.getElementById('row1');
+	var row2 = document.getElementById('row2');
+	var col1 = document.getElementById('col1');
+	var col2 = document.getElementById('col2');
 
-	var row_val = row1;
-	var col_val = col1;
-
+	var row_val = row1.value;
+	var col_val = col1.value;
 	var first_row = table.insertRow(0);
-	console.log('Table length: ' + table.rows.length);
 
 	// check if there's already a table displayed on the page; reset the HTML
 	if (table.rows.length != 1) {
-		console.log('this ran');
 		$('#my_table tbody').empty();
 		var first_row = table.insertRow(0);
 	}
 
 	// populate the headings for the first row
 	for (var i = 0; i < 1; i++) {
-		for (var j = 0; j < (col2 - col1) + 2; j++) {
+		for (var j = 0; j < (col2.value - col1.value) + 2; j++) {
 			var first_col = first_row.insertCell();
 
 			if (j === 0) {
@@ -54,13 +51,13 @@ function create_table() {
 		}
 	}
 
-	col_val = col1;
+	col_val = col1.value;
 
 	// iterate over the values entered in the form data: create row first then col data.
-	for (var i = 1; i < (row2 - row1) + 2; i++) {
+	for (var i = 1; i < (row2.value - row1.value) + 2; i++) {
 		var curr_row = table.insertRow(i);
 
-		for (var j = 0; j < (col2 - col1) + 2; j++) {
+		for (var j = 0; j < (col2.value - col1.value) + 2; j++) {
 			var curr_col = curr_row.insertCell(j);
 
 			if (j == 0)
@@ -72,7 +69,7 @@ function create_table() {
 			}
 		}
 
-		col_val = col1;
+		col_val = col1.value;
 		row_val++;
 	}
 }

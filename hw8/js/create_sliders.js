@@ -3,34 +3,21 @@ function create_sliders() {
         min: 1,
         max: 30,
         range: [1, 30],
-        value: 1,
+        value: 15,
 
         slide: function( event, ui ) {
-            $( "#amount" ).val( ui.value );
-            $(this).find('.ui-slider-handle').text(ui.value);
-        },
-        create: function(event, ui) {
-            var v = $(this).slider('value');
-            $(this).find('.ui-slider-handle').text(v);
-        },
-        // change: function(event, ui) {
-        //     alert(ui.value);
-        // }
+            $("#row1").val(ui.value);
+        }
     });
 
     $('#second-row').slider({
         min: 1,
         max: 30,
         range: [1, 30],
-        value: 1,
+        value: 15,
 
         slide: function( event, ui ) {
-            $( "#amount" ).val( ui.value );
-            $(this).find('.ui-slider-handle').text(ui.value);
-        },
-        create: function(event, ui) {
-            var v = $(this).slider('value');
-            $(this).find('.ui-slider-handle').text(v);
+            $("#row2").val(ui.value);
         }
     });
 
@@ -38,15 +25,10 @@ function create_sliders() {
         min: 1,
         max: 30,
         range: [1, 30],
-        value: 1,
+        value: 15,
 
         slide: function( event, ui ) {
-            $( "#amount" ).val( ui.value );
-            $(this).find('.ui-slider-handle').text(ui.value);
-        },
-        create: function(event, ui) {
-            var v = $(this).slider('value');
-            $(this).find('.ui-slider-handle').text(v);
+            $("#col1").val(ui.value);
         }
     });
 
@@ -54,15 +36,10 @@ function create_sliders() {
         min: 1,
         max: 30,
         range: [1, 30],
-        value: 1,
+        value: 15,
 
         slide: function( event, ui ) {
-            $( "#amount" ).val( ui.value );
-            $(this).find('.ui-slider-handle').text(ui.value);
-        },
-        create: function(event, ui) {
-            var v = $(this).slider('value');
-            $(this).find('.ui-slider-handle').text(v);
+            $("#col2").val(ui.value);
         }
     });
 };
