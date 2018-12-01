@@ -1,9 +1,9 @@
 /*
 Name: Tim Flannagan
 Email: timothy_flannagan@student.uml.edu
-Date: 11/20/18
+Date: 12/01/18
 Class: GUI 1 (Fall 2018)
-Assignment #6: Validate user input using jQuery
+Assignment #8: Using the jQuery UI Slider and Tab Widgets
 
 Sources:
 1. NaN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN

@@ -1,9 +1,9 @@
 /*
 Name: Tim Flannagan
 Email: timothy_flannagan@student.uml.edu
-Assignment #6: Validate user input using jQuery
+Assignment #8: Using the jQuery UI Slider and Tab Widgets
 File: js/form-validation.js"
-Date: 11/23/18
+Date: 12/01/18
 
 Sources:
 1. https://www.sitepoint.com/basic-jquery-form-validation-tutorial/

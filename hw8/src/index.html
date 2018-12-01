@@ -1,3 +1,10 @@
+<!--
+Name: Tim Flannagan
+Email: timothy_flannagan@student.uml.edu
+Assignment #8: Using the jQuery UI Slider and Tab Widgets.
+Last Modified: 12/01/18
+-->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,16 +15,18 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/form-validation.js"></script>
 
-    <title>HW7</title>
+    <script src="https://code.jquery.com/ui/jquery-ui-git.js">
+
+    </script>
+
+    <title>HW8</title>
     </head>
-    
+
     <body>
         <div class="container">
-          <!--  Below is where the user enters the x, y parameters -->
-            <h1>GUI Assignment #7: Using the jQuery Validation Plugin with Your Dynamic Table.</h1>
+            <h1 id="header" style="border: 1px solid red">Assignment #8: Using the jQuery UI Slider and Tab Widgets.</h1>
 
             <form id="myform">
             <div class="rows">
@@ -37,7 +46,15 @@
             <table id="my_table">
             </table>
 
-            <script type="text/javascript" src="../js/main.js"></script>
+            <script>
+                $(function() {
+                    $('#header').draggable( {
+                        distance: 50
+                    });
+                });
+            </script>
+
+            <!-- <script type="text/javascript" src="../js/main.js"></script> -->
         </div> <!-- end container div-->
 
     </body>

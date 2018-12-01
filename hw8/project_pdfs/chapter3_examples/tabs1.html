@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+     <head>
+         <meta charset="utf-8">
+         <title>Tabs</title>
+         <link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.9.custom.css">
+         <link rel="stylesheet" href="css/tabsTheme.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+     </head>
+
+     <body>
+         <div id="myTabs">
+
+         <ul>
+             <li><a href="#a">Tab 1</a></li>
+             <li><a href="#b">Tab 2</a></li>
+         </ul>
+
+         <div id="a">This is the content panel linked to the first tab,
+         it is shown by default.
+         </div>
+
+         <div id="b">This content is linked to the second tab and will
+         be shown when its tab is clicked.
+         </div>
+      </div>
+
+      <!-- <script src="development-bundle/jquery-x.x.x,js">
+      </script>
+
+      <script src="development-bundle/ui/jquery.ui.core.js">
+      </script>
+
+      <script
+          src="development-bundle/ui/jquery.ui.widget.js">
+      </script>
+      <script src="development-bundle/ui/jquery.ui.tabs.js">
+      </script> -->
+
+      <script>
+          (function($){
+              $("#myTabs").tabs();
+          })(jQuery);
+      </script>
+
+    </body>
+</html>
