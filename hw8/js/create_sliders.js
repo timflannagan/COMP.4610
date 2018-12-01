@@ -3,7 +3,7 @@ function create_sliders() {
         min: 1,
         max: 30,
         range: [1, 30],
-        value: 15,
+        value: 5,
 
         slide: function( event, ui ) {
             $("#row1").val(ui.value);
@@ -14,7 +14,7 @@ function create_sliders() {
         min: 1,
         max: 30,
         range: [1, 30],
-        value: 15,
+        value: 5,
 
         slide: function( event, ui ) {
             $("#row2").val(ui.value);
@@ -25,7 +25,7 @@ function create_sliders() {
         min: 1,
         max: 30,
         range: [1, 30],
-        value: 15,
+        value: 5,
 
         slide: function( event, ui ) {
             $("#col1").val(ui.value);
@@ -36,7 +36,7 @@ function create_sliders() {
         min: 1,
         max: 30,
         range: [1, 30],
-        value: 15,
+        value: 5,
 
         slide: function( event, ui ) {
             $("#col2").val(ui.value);

@@ -13,7 +13,7 @@ body {
     padding: 0px;
     height: 100%;
     width: 100%;
-    background: url("../externals/that_new_new.jpg") no-repeat 20%;
+    background: url("../externals/that_new_new.jpg");
     background-size: cover;
     background-position: right;
     color: white;
@@ -21,22 +21,33 @@ body {
 }
 
 #myform {
-    margin-top: 25px;
+    margin-top: 15px;
     height: 450px;
-    width: 600px;
+    width: 100%;
+}
+
+h1 {
+    margin-left: 15px;
+    color: black;
+    opacity: 0.5;
 }
 
 input {
+    text-align: center;
     margin: 15px;
     height: 30px;
-    width: 40%;
+    width: 30%;
 }
 
-.ui-slider .ui-slider-handle {
-    width:2em;
-    left:-.6em;
-    /* text-decoration:none; */
-    text-align:center;
+.ui-slider {
+    margin-left: 15px;
+    width: 30%;
+}
+
+
+#first-row .ui-state-default, .ui-widget-content .ui-state-default {
+	/* background: red; */
+	background-color: black;
 }
 
 .ui-widget {
@@ -66,15 +77,18 @@ table, th, td {
 table tr:first-child td {
   background: black;
   color: white;
+  opacity: 0.8;
 }
 
 td:nth-child(1) {
   background: black;
   color: white;
+  opacity: 0.8;
 }
 
 td {
   border: 1px solid white;
+  font-weight: 800;
 }
 
 th {
