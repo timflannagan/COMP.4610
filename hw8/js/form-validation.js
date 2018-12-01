@@ -24,22 +24,18 @@ function validate_form() {
         rules: {
           /* Ensure the form input values are correctly inputted */
           row1: {
-              required: true,
               digits: true,
               min: 1
           },
           row2: {
-              required: true,
               digits: true,
               upperbound_greater_lowerbound: "#row1"
           },
           col1: {
-              required: true,
               digits: true,
               min: 1
           },
           col2: {
-              required: true,
               digits: true,
               upperbound_greater_lowerbound: "#col1"
           }

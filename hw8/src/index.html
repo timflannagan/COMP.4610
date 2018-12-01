@@ -17,28 +17,39 @@ Last Modified: 12/01/18
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script type="text/javascript" src="../js/form-validation.js"></script>
 
-    <script src="https://code.jquery.com/ui/jquery-ui-git.js">
-
-    </script>
+    <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/main.js"></script>
 
     <title>HW8</title>
     </head>
 
     <body>
         <div class="container">
-            <h1 id="header" style="border: 1px solid red">Assignment #8: Using the jQuery UI Slider and Tab Widgets.</h1>
+            <h1 id="header">Assignment #8: Using the jQuery UI Slider and Tab Widgets.</h1>
 
             <form id="myform">
             <div class="rows">
                 Rows: <br>
-                <input id="row1" type="text" name="row1" placeholder="Enter row lower bound: "><br>
-                <input id="row2" type="text" name="row2" placeholder="Enter row upper bound: "><br>
-            </div>
+                <div id="first-row">
+                    <!-- <input id="row1" type="text" name="row1" placeholder="Enter row lower bound: "><br> -->
+                </div>
+
+                <div id="second-row">
+                    <!-- <input id="row2" type="text" name="row2" placeholder="Enter row upper bound: "><br> -->
+                </div>
+             </div>
 
             <div class="cols">
                 Columns: <br>
-                <input id="col1" type="text" name="col1" placeholder="Enter column lower bound: "><br>
-                <input id="col2" type="text" name="col2" placeholder="Enter column upper bound: "><br>
+                <div id="first-col">
+
+                </div>
+                <div id="second-col">
+
+                </div>
+                <!-- <input id="col1" type="text" name="col1" placeholder="Enter column lower bound: "><br> -->
+                <!-- <input id="col2" type="text" name="col2" placeholder="Enter column upper bound: "><br> -->
                 <input id="submit-button" type="submit" onclick="return validate_form()" value="Generate table: ">
             </div>
             </form>
@@ -48,13 +59,74 @@ Last Modified: 12/01/18
 
             <script>
                 $(function() {
-                    $('#header').draggable( {
-                        distance: 50
+                    $('#first-row').slider({
+                        min: 1,
+                        max: 30,
+                        range: [1, 30],
+                        value: 1,
+
+                        slide: function( event, ui ) {
+                            $( "#amount" ).val( ui.value );
+                            $(this).find('.ui-slider-handle').text(ui.value);
+                        },
+                        create: function(event, ui) {
+                            var v = $(this).slider('value');
+                            $(this).find('.ui-slider-handle').text(v);
+                        },
+                        // change: function(event, ui) {
+                        //     alert(ui.value);
+                        // }
+                    });
+
+                    $('#second-row').slider({
+                        min: 1,
+                        max: 30,
+                        range: [1, 30],
+                        value: 1,
+
+                        slide: function( event, ui ) {
+                            $( "#amount" ).val( ui.value );
+                            $(this).find('.ui-slider-handle').text(ui.value);
+                        },
+                        create: function(event, ui) {
+                            var v = $(this).slider('value');
+                            $(this).find('.ui-slider-handle').text(v);
+                        }
+                    });
+
+                    $('#first-col').slider({
+                        min: 1,
+                        max: 30,
+                        range: [1, 30],
+                        value: 1,
+
+                        slide: function( event, ui ) {
+                            $( "#amount" ).val( ui.value );
+                            $(this).find('.ui-slider-handle').text(ui.value);
+                        },
+                        create: function(event, ui) {
+                            var v = $(this).slider('value');
+                            $(this).find('.ui-slider-handle').text(v);
+                        }
+                    });
+
+                    $('#second-col').slider({
+                        min: 1,
+                        max: 30,
+                        range: [1, 30],
+                        value: 1,
+
+                        slide: function( event, ui ) {
+                            $( "#amount" ).val( ui.value );
+                            $(this).find('.ui-slider-handle').text(ui.value);
+                        },
+                        create: function(event, ui) {
+                            var v = $(this).slider('value');
+                            $(this).find('.ui-slider-handle').text(v);
+                        }
                     });
                 });
             </script>
-
-            <!-- <script type="text/javascript" src="../js/main.js"></script> -->
         </div> <!-- end container div-->
 
     </body>
