@@ -13,7 +13,7 @@ body {
     padding: 0px;
     height: 100%;
     width: 100%;
-    background: url("../externals/that_new_new.jpg");
+    background: url("../externals/background-4k.jpg");
     background-size: cover;
     background-position: right;
     color: white;
@@ -44,10 +44,13 @@ input {
     width: 30%;
 }
 
-
 #first-row .ui-state-default, .ui-widget-content .ui-state-default {
 	/* background: red; */
 	background-color: black;
+}
+
+.ui-state-default {
+    text-align: center;
 }
 
 .ui-widget {
