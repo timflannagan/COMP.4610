@@ -10,9 +10,9 @@ Sources:
 
 function create_sliders() {
     $('#first-row').slider({
-        min: 1,
+        min: 0,
         max: 30,
-        range: [1, 30],
+        range: [0, 30],
         value: 5,
 
         slide: function(event, ui) {
@@ -35,9 +35,9 @@ function create_sliders() {
     });
 
     $('#second-row').slider({
-        min: 1,
+        min: 0,
         max: 30,
-        range: [1, 30],
+        range: [0, 30],
         value: 5,
 
         slide: function(event, ui) {
@@ -61,7 +61,7 @@ function create_sliders() {
     $("#first-col").slider({
         min: 1,
         max: 30,
-        range: [1, 30],
+        range: [0, 30],
         value: 5,
 
         slide: function( event, ui ) {
@@ -83,9 +83,9 @@ function create_sliders() {
     });
 
     $('#second-col').slider({
-        min: 1,
+        min: 0,
         max: 30,
-        range: [1, 30],
+        range: [0, 30],
         value: 5,
 
         slide: function( event, ui ) {

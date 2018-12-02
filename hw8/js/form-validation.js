@@ -26,7 +26,7 @@ function validate_form() {
           row1: {
               required: true,
               digits: true,
-              min: 1
+              min: 0
           },
           row2: {
               required: true,
@@ -36,7 +36,7 @@ function validate_form() {
           col1: {
               required: true,
               digits: true,
-              min: 1
+              min: 0
           },
           col2: {
               required: true,
