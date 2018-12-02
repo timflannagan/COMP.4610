@@ -11,12 +11,11 @@ Sources:
 */
 
 $(document).ready(function () {
-	create_sliders()
-
-	if (validate_form()) {
-		create_table()
+	if (create_sliders()) {
+		if (validate_form()) {
+			create_table()
+		}
 	}
-
 });
 
 function create_table() {

@@ -5,7 +5,7 @@ Assignment #8
 Date: 12/02
 
 Sources:
-1.
+1. http://infoheap.com/jquery-ui-slider-and-input-text-box-two-way-binding/
 */
 
 function create_sliders() {
@@ -26,8 +26,12 @@ function create_sliders() {
     });
 
     $("#row1").change(function () {
-        console.log('row1 was changed. updating in row1 slider.');
-        $("#first-row").slider("option", "value");
+        var input_val = $(this).val();
+
+        if (!isNaN(input_val) && input_val <= 30 && input_val >= 0) {
+            $("#first-row").slider("value", input_val);
+            $('#first-row > .ui-slider-handle').text(input_val);
+        }
     });
 
     $('#second-row').slider({
@@ -45,7 +49,16 @@ function create_sliders() {
         }
     });
 
-    $('#first-col').slider({
+    $("#row2").change(function () {
+        var input_val = $(this).val();
+
+        if (!isNaN(input_val) && input_val <= 30 && input_val >= 0) {
+            $("#second-row").slider("value", input_val);
+            $('#second-row > .ui-slider-handle').text(input_val);
+        }
+    });
+
+    $("#first-col").slider({
         min: 1,
         max: 30,
         range: [1, 30],
@@ -57,6 +70,15 @@ function create_sliders() {
         create: function(event, ui) {
             var v = $(this).slider('value');
             $(this).find('.ui-slider-handle').text(v);
+        }
+    });
+
+    $("#col1").change(function () {
+        var input_val = $(this).val();
+
+        if (!isNaN(input_val) && input_val <= 30 && input_val >= 0) {
+            $("#first-col").slider("value", input_val);
+            $('#first-col > .ui-slider-handle').text(input_val);
         }
     });
 
@@ -75,15 +97,13 @@ function create_sliders() {
         }
     });
 
+    $("#col2").change(function () {
+        var input_val = $(this).val();
 
-    // var row1_value = $("first-row").slider("option", "value");
-    // var row2_value = $("second-row").slider("option", "value");
-    // var col1_value = $("first-col").slider("option", "value");
-    // var col2_value = $("second-col").slider("option", "value");
-    //
-    // $("row1").val(row1_value);
-    // $("row2").val(row2_value);
-    // $("col1").val(row2_value);
-    // $("col2").val(row2_value);
-
+        if (!isNaN(input_val) && input_val <= 30 && input_val >= 0) {
+            $("#second-col").slider("value", input_val);
+            $('#second-col > .ui-slider-handle').text(input_val);
+        }
+        return False;
+    });
 };
