@@ -78,7 +78,3 @@ function validate_form() {
         }
     }); // end of form validation
 }
-
-// $(document).ready(function () {
-//     validate_form()
-// });

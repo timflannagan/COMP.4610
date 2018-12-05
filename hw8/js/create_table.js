@@ -1,6 +1,6 @@
 function create_table() {
 	/* Create a <table> given user input and populate cells with correct multiplication entry */
-	var table = document.getElementById('my_table');
+	var table = document.createElement("table");
 	var row1 = document.getElementById('row1');
 	var row2 = document.getElementById('row2');
 	var col1 = document.getElementById('col1');
@@ -12,7 +12,7 @@ function create_table() {
 
 	// check if there's already a table displayed on the page; reset the HTML
 	if (table.rows.length != 1) {
-		$('#my_table tbody').empty();
+		$('tbody').empty();
 		var first_row = table.insertRow(0);
 	}
 
@@ -51,4 +51,6 @@ function create_table() {
 		col_val = col1.value;
 		row_val++;
 	}
+
+	$("#my_table").html(table);
 }
