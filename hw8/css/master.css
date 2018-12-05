@@ -35,6 +35,11 @@ body {
     border: none;
 }
 
+#tabs div {
+    margin-left: -20px;
+}
+
+
 .ui-tabs .ui-tabs-nav {
     background: transparent;
     border: none;
