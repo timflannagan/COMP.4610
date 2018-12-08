@@ -7,6 +7,11 @@ File: js/main.js
 Sources:
 1. Tile Distribution: http://scrabblewizard.com/scrabble-tile-distribution/
 2. Tuples in JS: https://stackoverflow.com/questions/20392782/a-list-of-tuples-in-javascript
+
+Notes:
+1. There are 100 total tiles in all
+2. Button features:
+   - Deal another seven random letter titles 
 */
 
 var SCORING_VALUES = [
@@ -37,6 +42,7 @@ var SCORING_VALUES = [
     { "letter": "X", "count": 1, "value": 8 },
     { "letter": "Y", "count": 2, "value": 4 },
     { "letter": "Z", "count": 1, "value": 10 },
+    { "letter": "blank", "count": 2, "value": 0}
 ]
 
 $(document).ready(function () {
