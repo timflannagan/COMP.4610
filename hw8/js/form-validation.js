@@ -1,9 +1,9 @@
 /*
 Name: Tim Flannagan
 Email: timothy_flannagan@student.uml.edu
-Assignment #6: Validate user input using jQuery
+Assignment #8: Using the jQuery UI Slider and Tab Widgets
 File: js/form-validation.js"
-Date: 11/23/18
+Date: 12/01/18
 
 Sources:
 1. https://www.sitepoint.com/basic-jquery-form-validation-tutorial/
@@ -17,7 +17,7 @@ Sources:
 function validate_form() {
     $.validator.addMethod("upperbound_greater_lowerbound", function (value, element, param) {
         /* Ensure that the user entered an upper bound value that's greater than the lower bound value. */
-        return parseInt(value, 10) > parseInt($(param).val(), 10);
+        return parseInt(value, 10) >= parseInt($(param).val(), 10);
     });
 
     var validator = $('#myform').validate({
@@ -26,7 +26,7 @@ function validate_form() {
           row1: {
               required: true,
               digits: true,
-              min: 1
+              min: 0
           },
           row2: {
               required: true,
@@ -36,7 +36,7 @@ function validate_form() {
           col1: {
               required: true,
               digits: true,
-              min: 1
+              min: 0
           },
           col2: {
               required: true,
@@ -78,7 +78,3 @@ function validate_form() {
         }
     }); // end of form validation
 }
-
-$(document).ready(function () {
-    validate_form()
-});
