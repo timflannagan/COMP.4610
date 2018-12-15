@@ -11,8 +11,11 @@ Sources:
 Notes:
 1. There are 100 total tiles in all
 2. Button features:
-   - Deal another seven random letter titles 
+   - Deal another seven random letter titles
+   - Submit word button
 */
+
+var NUM_TILES = 7;
 
 var SCORING_VALUES = [
     /* Theres 26 letters, each with an assigned value, and a count */
@@ -45,6 +48,24 @@ var SCORING_VALUES = [
     { "letter": "blank", "count": 2, "value": 0}
 ]
 
+function create_board() {
+    /* Create a board with seven tiles. Basing the board off the one in hw9 pdf */
+    document.getElementById('scrabble-board');
+
+    var table = document.createElement('table');
+    var first_row = table.insertRow(0);
+
+    for (var i = 0; i < NUM_TILES; i++) {
+        var curr_cell = first_row.insertCell();
+        var img = document.createElement('img');
+        // img.src = "../externals/yes.jpeg"
+        curr_cell.innerHTML = i;
+        // curr_cell.appendChild(img);
+    }
+
+    $("#scrabble-board").html(table);
+}
+
 $(document).ready(function () {
     /*
     Steps:
@@ -53,4 +74,7 @@ $(document).ready(function () {
     2. Need to implement the drag-and-drop component
        to score the user's value.
     */
+
+    create_board()
+
 });
