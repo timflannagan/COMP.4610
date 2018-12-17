@@ -2,8 +2,17 @@
 - [ ] Update Documentation in `index.html` after finishing the assignment.
 - [x] Add jQuery UI CDN's to `index.html`.
 - [x] Create initial board div
-- [ ] Create a row of 7 board pieces.
-- [ ] Create a button with onClick to trigger JS.
+- [x] Create a row of 7 board pieces.
+- [ ] When changing a letter to another spot in the same tile, don't update anything.
+- [ ] Change board tiles to images.
+- [ ] Have tiles snap back to the rack.
+- [x] Change rack tiles (paragraphs) to images.
+- [ ] Track the current word that's on the board.
+- [x] Implement a reset button.
+- [ ] Implements the functionality of a reset button.
+- [x] Implement a submit word button.
+- [ ] Implement the functionality of a submit word button.
+- [ ] Don't allow two tiles to be in the same board square.
 
 ## What You Are To Do:
 - [ ] Refer to the jQuery UI documentation and examples on the `jQuery UI` website.

@@ -1,24 +1,22 @@
 /*
 Name: Tim Flannagan
 File Creation Date: 12/08/18
-Assignment #9
+Assignment #9: Implementing a Bit of Scrabble with Drag-and-Drop
 File: js/main.js
 
 Sources:
 1. Tile Distribution: http://scrabblewizard.com/scrabble-tile-distribution/
 2. Tuples in JS: https://stackoverflow.com/questions/20392782/a-list-of-tuples-in-javascript
-
-Notes:
-1. There are 100 total tiles in all
-2. Button features:
-   - Deal another seven random letter titles
-   - Submit word button
+3. Draggable: https://www.tutorialspoint.com/jqueryui/jqueryui_draggable.htm
+4. Getting dragable values: https://stackoverflow.com/questions/21195737/jquery-ui-get-value-of-element-on-which-an-item-is-dropped
 */
 
-var DEBUG = false;
-var NUM_TILES = 7;
+var curr_word = [];
+var DEBUG = true;
+var REMAINING_LETTERS = 7;
 
-var SCORING_VALUES = [
+const NUM_TILES = 7;
+const SCORING_VALUES = [
     /* Theres 26 letters, each with an assigned value, and a count */
     { "letter": "A", "count": 9, "value": 1 },
     { "letter": "B", "count": 2, "value": 3 },
@@ -67,20 +65,70 @@ function create_board() {
     $("#scrabble-board").html(table);
 }
 
-function populate_board() {
+function reset_word() {
+    $(".scrabble-rack").empty();
+    populated_board_tiles();
+}
 
+function prepare_drop() {
+
+    $(".board").droppable({
+        drop: function(event, ui) {
+            var letter = ui.draggable.prop('id');
+            var element = $(this).attr('id');
+            var number = element;
+
+            REMAINING_LETTERS--;
+
+            if (DEBUG) {
+                console.log(letter, element, number, REMAINING_LETTERS);
+            }
+        },
+
+        out: function (event, ui) {
+            REMAINING_LETTERS++;
+
+            if (DEBUG) {
+                console.log('REMAINING_LETTERS: ' + REMAINING_LETTERS);
+            }
+        },
+    });
+
+
+    $(".tile").draggable({
+        snap: ".board",
+        revert: "invalid",
+    });
+}
+
+function populated_board_tiles() {
+    /* Populate the tiles in the rack by generating a random number and indexing
+       the scoring values dictionary. Append that associated letter png to the rack.
+       See source #4 for more information.
+    */
+    for (var i = 0; i < NUM_TILES; i++) {
+        var rand_index = Math.floor(Math.random() * 27);
+        var letter = SCORING_VALUES[rand_index].letter;
+
+        if (DEBUG) {
+            console.log('Letter chosen: ' + letter);
+        }
+
+        $(".scrabble-rack").append('<img class="tile" id="tile-' + letter + '"src="../externals/letters/' + letter + '.png">')
+    }
 }
 
 $(document).ready(function () {
-    // create_board()
+    populated_board_tiles()
+    prepare_drop()
 
-    if (DEBUG) {
-        $("#reset-word").click(function() {
-            alert('Reset button was clicked!');
-        });
-        $("#submit-word").click(function() {
-            alert('Submit button was clicked!');
-        });
-    }
+    $("#reset-word").click(function () {
+        reset_word()
+        prepare_drop()
+    });
+
+    $("#submit-word").click(function () {
+        document.getElementById("word-score").innerHTML = "Word Score: this ran";
+    });
 
 });

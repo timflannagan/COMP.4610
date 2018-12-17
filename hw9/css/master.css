@@ -1,3 +1,12 @@
+/*
+Name: Tim Flannagan
+Date: 12/17/18
+
+Sources:
+1. Centering images in div: https://stackoverflow.com/questions/18428997/center-image-element-in-parent-div
+                            https://stackoverflow.com/questions/11856150/css-to-center-a-image-horizontally
+*/
+
 html, body {
     margin: 0px;
     font-family: 'Lato', sans-serif;
@@ -9,13 +18,14 @@ body {
 }
 
 table {
-    height: 300px;
-    width: 300px;
-    margin-left: 15px;
+    height: 150px;
+    width: 100%;
+    /* margin-left: 15px; */
 }
 
 table td {
     padding: 20px;
+    text-align: center;
     border: 1px solid black;
 }
 
@@ -28,6 +38,20 @@ h1 {
     width: 640px;
     height: 150px;
     margin: 80px auto;
+}
+
+.scrabble-rack {
+    border: 5px solid black;
+    height: 300px;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("../externals/scrabble_rack.png");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 button {

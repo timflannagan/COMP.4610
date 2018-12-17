@@ -21,23 +21,32 @@ Last Modification:
         <link rel="stylesheet" href="../css/master.css">
     </head>
     <body>
-        <!-- <div class="header">
-            <h6>Tim Flannagan</h6>
-            <div class="header-right">
-                <p>Current Score: </p>
-            </div>
-        </div> -->
-
         <h1>Homework #9: Implementing a Bit of Scrabble with Drag-and-Drop</h1>
 
         <div class="container">
+            <div class="header">
+                <div id="score">Scores: 0</div>
+                <div id="word-score">Word Score: 0</div>
+                <div id="last-word">Last Word: </div>
+            </div>
+
             <div id="scrabble-board">
-                <img id="scrabble-board" src="../externals/scrabble_board.png" alt="board">
+                <table>
+                    <tr>
+                        <td class="board">1</td>
+                        <td class="board">2</td>
+                        <td class="board">3</td>
+                        <td class="board">4</td>
+                        <td class="board">5</td>
+                        <td class="board">6</td>
+                        <td class="board">7</td>
+                    </tr>
+                </table>
             </div>
 
             <div class="scrabble-rack">
-                <img id="tile-holder" src="../externals/scrabble_rack.png" alt="tile holder">
             </div>
+
             <button id="reset-word" type="button" name="Reset">Reset</button>
             <button id="submit-word" type="button" name="Submit Word">Submit Word</button>
         </div> <!-- end of .container -->
