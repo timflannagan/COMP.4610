@@ -1,10 +1,58 @@
+<!--
+File: /~tflannag/public_html/hw4/src/about.html
+Tim Flannagan, UMass Lowell Computer Science, tflannag@cs.uml.edu
+Email: timothy_flannagan@student.uml.edu
+Affiliation: UMass Lowell student taking COMP.4610 GUI Programming I
+Origin release date: 09/11/18
+Last revision: 12/16/18
+Purpose: Practice using basic html by creating your own personal website.
+-->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>About me.</title>
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8">
+    <title>About Me.</title>
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+  </head>
+  <body>
+    <div class="wrapper">
 
-    </body>
+      <div class="about-section">
+        <h2>Work:</h2>
+        <p>Currently work at Red Hat in the operating systems department.
+            I've primarily been working with Python in both work and school projects.
+            I also learned Ansible, an IT automation framework, during the summer and
+            used Ansible and python to automate the storage layout configuration process.
+        </p>
+
+        <h2>School:</h2>
+          <p>Graduated from high school in 2014 from Parker Charter School in Devens, MA
+              Started college in the Fall of 2014 at Nichols College, pursuing a degree in finance.
+              Transferred to UMass Lowell in Spring of 2014.
+              Switched my major from finance to computer science in 2016.
+              I Plan to graduate after the Fall 2018 semester.
+          </p>
+
+        <h2 class="schedule">Class Schedule:</h2>
+        <ol class="schedule-list">
+          <li>Graphical User Interface I</li>
+          <li>Artificial Intelligence</li>
+          <li>Introduction to Financial Statement Analysis</li>
+        </ol>
+
+      </div> <!-- about-section-->
+
+      <div class="footer">
+        <a class="github" href="https://github.com/timflannagan1"><i class="fa fa-github fa-fw" style="font-size:24px"></i></a>
+        <a class="linkedin" href="https://linkedin.com/in/tim-flannagan"><i class="fa fa-linkedin fa-fw" style="font-size:24px"></i></a>
+        <a class="email" href="mailto:timothy_flannagan@student.uml.edu"><i class="fa fa-envelope fa-fw" style="font-size:24px"></i></a>
+      </div> <!-- footer -->
+
+      <a href="index.html">Click on me to go back to the home page.</a>
+
+    </div> <!-- wrapper -->
+  </body>
 </html>

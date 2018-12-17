@@ -4,7 +4,7 @@ COMP.4610 Assignment #2: Creating Your First Web Page
 Tim Flannagan, UMass Lowell Computer Science, tflannag@cs.uml.edu
 Email: timothy_flannagan@student.uml.edu
 Affiliation: UMass Lowell student taking COMP.4610 GUI Programming I
-Origin release date: 09/11/18
+Origin release date: 12/16/18
 Last revision: 09/18/18
 Purpose: Practice using basic html by creating your own personal website.
 -->
@@ -17,21 +17,31 @@ Purpose: Practice using basic html by creating your own personal website.
 	</head>
 
 	<body>
-	<h1>About Me.</h1>
-		<p>I'm a computer science studying at Umass Lowell.</p>
-		<p>Currently a senior going into my last semester.</p>
-		<p>Taking GUI 1</p>
-	<h2>Class Schedule</h2>
-	<ol>
-		<li>COMP.4200 A.I.</li>
-		<li>COMP.4610 GUI</li>
-		<li>FINA.3110 Introduction to Financial Statements</li>
-	</ol>
-	<h3>Hobbies</h3>
-	<ul>
-		<li>Basketball</li>
-		<li>Weight lifting</li>
-	</ul>
+		<div class="header">
+			<h1>About Me.</h1>
+				<p>I'm a computer science studying at Umass Lowell.</p>
+				<p>Currently a senior going into my last semester.</p>
+				<p>Taking GUI 1</p>
+		</div> <!-- end of .header div -->
 
+		<div class="class-schedule">
+			<h2>Class Schedule</h2>
+			<ol>
+				<li>COMP.4200 A.I.</li>
+				<li>COMP.4610 GUI</li>
+				<li>FINA.3110 Introduction to Financial Statements</li>
+			</ol>
+		</div> <!-- end of .class-schedule div -->
+
+		<div class="hobbies">
+
+			<h3>Hobbies</h3>
+			<ul>
+				<li>Basketball</li>
+				<li>Weight lifting</li>
+			</ul>
+		</div> <!-- end of .hobbies div-->
+
+		<a href="about.html">Learn more about me</a>
 	</body>
 </html>
