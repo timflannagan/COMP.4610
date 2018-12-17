@@ -15,6 +15,7 @@ Notes:
    - Submit word button
 */
 
+var DEBUG = false;
 var NUM_TILES = 7;
 
 var SCORING_VALUES = [
@@ -66,15 +67,20 @@ function create_board() {
     $("#scrabble-board").html(table);
 }
 
-$(document).ready(function () {
-    /*
-    Steps:
-    1. We need to populate the scrabble board somehow.
-       a.
-    2. Need to implement the drag-and-drop component
-       to score the user's value.
-    */
+function populate_board() {
 
-    create_board()
+}
+
+$(document).ready(function () {
+    // create_board()
+
+    if (DEBUG) {
+        $("#reset-word").click(function() {
+            alert('Reset button was clicked!');
+        });
+        $("#submit-word").click(function() {
+            alert('Submit button was clicked!');
+        });
+    }
 
 });

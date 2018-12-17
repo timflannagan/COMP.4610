@@ -15,30 +15,9 @@ table {
 }
 
 table td {
-    /* border-spacing: 20px; */
     padding: 20px;
+    border: 1px solid black;
 }
-
-/* .container {
-    height: 100%;
-    width: 100%;
-}
-
-.header {
-    margin-left: 15px;
-    text-align: center;
-    margin-bottom: 25px;
-    padding: 20px 10px;
-}
-
-.header h6 {
-    float: left;
-    font-size: 20px;
-}
-
-.header-right {
-    float: right;
-} */
 
 h1 {
     text-align: center;
@@ -47,7 +26,13 @@ h1 {
 
 #tile-holder {
     width: 640px;
-    height: 182px;
+    height: 150px;
     margin: 80px auto;
+}
 
+button {
+    width: 80px;
+    height: 80px;
+    display: inline;
+    margin-left: 50px;
 }
