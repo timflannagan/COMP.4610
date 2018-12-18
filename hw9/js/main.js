@@ -55,10 +55,18 @@ const SCORING_VALUES = [
     { "letter": "Z", "count": 1, "value": 10 },
 ]
 
+function clear_letter_id() {
+    for (var i = 0; i < row_obj.length; i++) {
+        row_obj[i].letter_id = "";
+    }
+}
+
 function reset_word() {
     curr_word_obj = [];
     curr_word = [];
     curr_score = 0;
+
+    clear_letter_id()
 
     $(".scrabble-rack").empty();
     document.getElementById('curr-word').innerHTML = "Current Word: ";
@@ -106,8 +114,6 @@ function prepare_drop() {
 
 
             row_obj[row_index].letter_id = letter;
-            // console.log(row_obj);
-
             curr_word.push(letter[5]);
             curr_word_obj.push(letter_dict);
 
