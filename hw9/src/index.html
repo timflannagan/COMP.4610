@@ -19,7 +19,9 @@ Last Modification:
 
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <link rel="stylesheet" href="../css/master.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
+
     <body>
         <h1>Homework #9: Implementing a Bit of Scrabble with Drag-and-Drop</h1>
 
@@ -32,25 +34,14 @@ Last Modification:
                 <div id="last-score">Last Score: 0</div>
             </div>
 
-            <div id="scrabble-board">
-                <table>
-                    <tr>
-                        <td class="board">1</td>
-                        <td class="board">2</td>
-                        <td class="board">3</td>
-                        <td class="board">4</td>
-                        <td class="board">5</td>
-                        <td class="board">6</td>
-                        <td class="board">7</td>
-                    </tr>
-                </table>
-            </div>
+            <div id="scrabble-board"></div>
 
-            <div class="scrabble-rack">
-            </div>
+            <div class="scrabble-rack"></div>
 
-            <button id="reset-word" type="button" name="Reset">Reset</button>
-            <button id="submit-word" type="button" name="Submit Word">Submit Word</button>
+            <div class="footer-buttons">
+                <button id="reset-word" type="button" class="btn btn-primary">Reset Word</button>
+                <button id="submit-word" type="button" class="btn btn-warning">Submit Word</button>
+            </div>
 
         </div> <!-- end of .container -->
 

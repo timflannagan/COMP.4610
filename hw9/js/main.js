@@ -52,20 +52,27 @@ const SCORING_VALUES = [
 
 function create_board() {
     /* Create a board with seven tiles. Basing the board off the one in hw9 pdf */
-    document.getElementById('scrabble-board');
-
-    var table = document.createElement('table');
-    var first_row = table.insertRow(0);
+    var board = document.getElementById('scrabble-board');
 
     for (var i = 0; i < NUM_TILES; i++) {
-        var curr_cell = first_row.insertCell();
+        var src_file;
+        var id;
         var img = document.createElement('img');
-        // img.src = "../externals/yes.jpeg"
-        curr_cell.innerHTML = i;
-        // curr_cell.appendChild(img);
-    }
 
-    $("#scrabble-board").html(table);
+        if (i == 1 || i == 5) {
+            src_file = '../externals/board/double_word.jpg';
+            id = 'blank';
+        } else {
+            src_file = '../externals/board/blank_board.jpg';
+            id = 'double-word';
+        }
+
+        img.id = id;
+        img.src = src_file;
+        img.className = 'board-tile';
+
+        board.appendChild(img);
+    }
 }
 
 function reset_word() {
@@ -81,8 +88,8 @@ function reset_word() {
 }
 
 function prepare_drop() {
-
-    $(".board").droppable({
+    /* Initialize the drag-and-drop mechanics of the tiles/rack/board */
+    $(".board-tile").droppable({
         drop: function(event, ui) {
             var letter = $(ui.draggable).attr('id')[5];
             curr_word.push(letter);
@@ -120,7 +127,7 @@ function prepare_drop() {
     });
 
     $(".tile").draggable({
-        snap: ".board",
+        snap: ".board-tile",
         revert: "invalid"
     });
 }
@@ -169,6 +176,7 @@ function update_after_submit() {
 }
 
 $(document).ready(function () {
+    create_board()
     populated_board_tiles()
     prepare_drop()
 

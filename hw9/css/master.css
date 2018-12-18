@@ -17,16 +17,8 @@ body {
     width: 100%;
 }
 
-table {
-    height: 150px;
-    width: 100%;
-    /* margin-left: 15px; */
-}
-
-table td {
-    padding: 20px;
+.container {
     text-align: center;
-    border: 1px solid black;
 }
 
 h1 {
@@ -34,28 +26,11 @@ h1 {
     font-weight: lighter;
 }
 
-#tile-holder {
-    width: 640px;
-    height: 150px;
-    margin: 80px auto;
+#scrabble-board {
+    margin: 25px 0 25px 0;
 }
 
 .scrabble-rack {
-    border: 5px solid black;
-    height: 300px;
-    text-align: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-image: url("../externals/scrabble_rack.png");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.scrabble-rack {
-    /* border: 5px solid black; */
     min-height: 200px;
     min-width: 250px;
     text-align: center;
@@ -64,7 +39,7 @@ h1 {
     align-items: center;
     justify-content: center;
 
-    background-image: url("../externals/scrabble_rack.png");
+    background-image: url("../externals/board/scrabble_rack.png");
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -73,10 +48,10 @@ h1 {
     height: 80px;
 }
 
-
-button {
-    width: 80px;
+/* button {
+    /* width: 80px;
     height: 80px;
     display: inline;
-    margin-left: 50px;
-}
+    margin-left: 50px; */
+
+} */
