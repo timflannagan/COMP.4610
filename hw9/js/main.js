@@ -47,33 +47,9 @@ const SCORING_VALUES = [
     { "letter": "X", "count": 1, "value": 8 },
     { "letter": "Y", "count": 2, "value": 4 },
     { "letter": "Z", "count": 1, "value": 10 },
-    { "letter": "Blank", "count": 2, "value": 0}
 ]
 
-function create_board() {
-    /* Create a board with seven tiles. Basing the board off the one in hw9 pdf */
-    var board = document.getElementById('scrabble-board');
-
-    for (var i = 0; i < NUM_TILES; i++) {
-        var src_file;
-        var id;
-        var img = document.createElement('img');
-
-        if (i == 1 || i == 5) {
-            src_file = '../externals/board/double_word.jpg';
-            id = 'blank';
-        } else {
-            src_file = '../externals/board/blank_board.jpg';
-            id = 'double-word';
-        }
-
-        img.id = id;
-        img.src = src_file;
-        img.className = 'board-tile';
-
-        board.appendChild(img);
-    }
-}
+// { "letter": "Blank", "count": 2, "value": 0}
 
 function reset_word() {
     curr_word = [];
@@ -132,13 +108,38 @@ function prepare_drop() {
     });
 }
 
+function create_board() {
+    /* Create a board with seven tiles. Basing the board off the one in hw9 pdf */
+    var board = document.getElementById('scrabble-board');
+
+    for (var i = 0; i < NUM_TILES; i++) {
+        var src_file;
+        var id;
+        var img = document.createElement('img');
+
+        if (i == 1 || i == 5) {
+            src_file = '../externals/board/double_word.jpg';
+            id = 'blank';
+        } else {
+            src_file = '../externals/board/blank_board.jpg';
+            id = 'double-word';
+        }
+
+        img.id = id;
+        img.src = src_file;
+        img.className = 'board-tile';
+
+        board.appendChild(img);
+    }
+}
+
 function populated_board_tiles() {
     /* Populate the tiles in the rack by generating a random number and indexing
        the scoring values dictionary. Append that associated letter png to the rack.
        See source #4 for more information.
     */
     for (var i = 0; i < NUM_TILES; i++) {
-        var rand_index = Math.floor(Math.random() * 27);
+        var rand_index = Math.floor(Math.random() * 26);
         var letter = SCORING_VALUES[rand_index].letter;
 
         if (DEBUG) {
