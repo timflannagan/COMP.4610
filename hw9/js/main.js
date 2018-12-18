@@ -11,16 +11,22 @@ Sources:
 4. Getting dragable values: https://stackoverflow.com/questions/21195737/jquery-ui-get-value-of-element-on-which-an-item-is-dropped
 5. Getting drag ID: https://stackoverflow.com/questions/6163510/jquery-draggables-get-id-of-dragable
 6. Removing element from JS array: https://love2dev.com/blog/javascript-remove-from-array/
+7. Load JSON-Encoded data: https://api.jquery.com/jquery.getjson/
+8. Snapping to multiple elements: https://stackoverflow.com/questions/16257835/how-to-set-snap-to-multiple-elements
 */
 
+var curr_word_obj = [];
 var curr_word = [];
 var curr_score = 0;
+var row_obj = [];
 var DEBUG = false;
 var REMAINING_LETTERS = 7;
 
 const NUM_TILES = 7;
 const SCORING_VALUES = [
-    /* Theres 27 letters, each with an assigned value, and a count */
+    /* Theres 27 letters, each with an assigned value, and a count.
+       Removing blanks for now.
+     */
     { "letter": "A", "count": 9, "value": 1 },
     { "letter": "B", "count": 2, "value": 3 },
     { "letter": "C", "count": 2, "value": 3 },
@@ -49,9 +55,8 @@ const SCORING_VALUES = [
     { "letter": "Z", "count": 1, "value": 10 },
 ]
 
-// { "letter": "Blank", "count": 2, "value": 0}
-
 function reset_word() {
+    curr_word_obj = [];
     curr_word = [];
     curr_score = 0;
 
@@ -63,39 +68,74 @@ function reset_word() {
     prepare_drop()
 }
 
+function print_arr(word) {
+    var rval = "";
+
+    for (var i = 0; i < word.length; i++) {
+        rval += word[i];
+    }
+
+    return rval;
+}
+
+function check_dict(dict_obj, lookup) {
+    for (var key in dict_obj) {
+        if (dict_obj[key].letter_id == lookup) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 function prepare_drop() {
     /* Initialize the drag-and-drop mechanics of the tiles/rack/board */
     $(".board-tile").droppable({
+        accept: '.tile',
+
         drop: function(event, ui) {
-            var letter = $(ui.draggable).attr('id')[5];
-            curr_word.push(letter);
+            var letter = $(ui.draggable).attr('id');
+            var element_id = $(this).attr('id');
+            var row_index = element_id[0];
 
-            REMAINING_LETTERS--;
-
-            if (DEBUG) {
-                console.log('Letter: ' + letter, 'and word: ' + curr_word);
-                console.log(REMAINING_LETTERS);
+            var letter_dict = {
+                letter_id: letter,
+                letter: letter[5],
+                elem_id: element_id
             }
-            document.getElementById('curr-word').innerHTML = "Current Word: " + curr_word;
+
+
+            row_obj[row_index].letter_id = letter;
+            // console.log(row_obj);
+
+            curr_word.push(letter[5]);
+            curr_word_obj.push(letter_dict);
+
+            document.getElementById('curr-word').innerHTML = "Current Word: " + print_arr(curr_word);
             calculate_word_score();
         },
 
-        out: function (event, ui) {
-            var letter = $(ui.draggable).attr('id')[5];
-            var letter_index = curr_word.indexOf(letter);
+        out: function(event, ui) {
+            var letter = ui.draggable.attr('id');
+            var drop_id = $(this).attr('id');
+            var row_index = drop_id[0];
 
-            console.log('Before word: ', curr_word);
-            curr_word.splice(letter_index, 1);
-            console.log('After word: ', curr_word);
+            // this seems to fix the problem where dragging a tile over existing
+            // board pieces would reset the other letter id's in the row obj
+            if (letter == row_obj[row_index].letter_id) {
+                row_obj[row_index].letter_id = "";
+            } else {
+                if (DEBUG) {
+                    console.log('The letter ' + letter + ' was dragged across existing tiles.');
+                }
+
+                return false;
+            }
 
             REMAINING_LETTERS++;
-
-            if (DEBUG) {
-                console.log('You took off the letter: ' + letter + ' ' + letter_index);
-                console.log('REMAINING_LETTERS: ' + REMAINING_LETTERS);
-            }
-            document.getElementById('curr-word').innerHTML = "Current Word: " + curr_word;
-        },
+            document.getElementById('curr-word').innerHTML = "Current Word: " + print_arr(curr_word);
+            calculate_word_score()
+        }
     });
 
     $(".scrabble-rack").droppable({
@@ -104,6 +144,7 @@ function prepare_drop() {
 
     $(".tile").draggable({
         snap: ".board-tile",
+        snapMode: "inner",
         revert: "invalid"
     });
 }
@@ -113,21 +154,26 @@ function create_board() {
     var board = document.getElementById('scrabble-board');
 
     for (var i = 0; i < NUM_TILES; i++) {
-        var src_file;
         var id;
+        var src_file;
         var img = document.createElement('img');
 
         if (i == 1 || i == 5) {
             src_file = '../externals/board/double_word.jpg';
-            id = 'blank';
+            id = 'double-word';
         } else {
             src_file = '../externals/board/blank_board.jpg';
-            id = 'double-word';
+            id = 'blank';
         }
 
-        img.id = id;
+        img.id = i + '-' + id;
         img.src = src_file;
         img.className = 'board-tile';
+
+        row_obj[i] = {
+            'type': id,
+            'letter_id': ''
+        }
 
         board.appendChild(img);
     }
@@ -154,25 +200,46 @@ function calculate_word_score() {
     /* Iterate through each letter in the word, checking if that letter is a valid
        entry in the scoring dictionary. If true, add that value to the total score.
     */
-    for (var i = 0; i < curr_word.length; i++) {
-        for (var j = 0; j < SCORING_VALUES.length; j++) {
-            if (curr_word[i] == SCORING_VALUES[j]['letter']) {
-                curr_score += SCORING_VALUES[j]['value']
+    curr_score = 0;
+    curr_word = [];
 
-                if (DEBUG) {
-                    console.log('New score: ' + curr_score);
+    for (var i = 0; i < row_obj.length; i++) {
+        for (var j = 0; j < SCORING_VALUES.length; j++) {
+            var multiplier = 1;
+
+            if (row_obj[i].letter_id != "" && (row_obj[i].letter_id[5] == SCORING_VALUES[j].letter)) {
+                curr_word.push(row_obj[i].letter_id[5]);
+
+
+                // https://stackoverflow.com/questions/1789945/how-to-check-whether-a-string-contains-a-substring-in-javascript
+                if (row_obj[i].type.includes('blank')) {
+                    multiplier = 1;
+                } else {
+                    multiplier = 2;
                 }
+
+                curr_score += (SCORING_VALUES[j].value * multiplier);
 
                 document.getElementById('word-score').innerHTML = "Word Score: " + curr_score;
             }
         }
     }
+
+    if (DEBUG) {
+        console.log(row_obj);
+    }
 }
 
 function update_after_submit() {
     /* Simple helper function that updates head information about last word scoring */
-    document.getElementById("last-word").innerHTML = "Last Word: " + curr_word;
+    if (curr_word_obj.length < 2) {
+        alert('You need to play at least two letters in order to submit a valid word for scoring!');
+        return false;
+    }
+
+    document.getElementById("last-word").innerHTML = "Last Word: " + print_arr(curr_word);
     document.getElementById("last-score").innerHTML = "Last Score: " + curr_score;
+
     reset_word()
 }
 

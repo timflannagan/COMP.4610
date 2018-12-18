@@ -30,6 +30,12 @@ h1 {
     margin: 25px 0 25px 0;
 }
 
+#scrabble-board img {
+    height: 80px;
+    margin: 15px;
+    width: 73.33px;
+}
+
 .scrabble-rack {
     min-height: 200px;
     min-width: 250px;
@@ -48,10 +54,6 @@ h1 {
     height: 80px;
 }
 
-/* button {
-    /* width: 80px;
-    height: 80px;
-    display: inline;
-    margin-left: 50px; */
-
-} */
+.footer-buttons {
+    margin-top: 25px;
+}
