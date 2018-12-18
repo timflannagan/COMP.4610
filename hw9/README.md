@@ -13,6 +13,8 @@
 - [x] Implement a submit word button.
 - [ ] Implement the functionality of a submit word button.
 - [ ] Don't allow two tiles to be in the same board square.
+- [ ] Add tile animation.
+- [ ] Track both the ID and value of a word so we don't have to call update_word_score() after a letter is placed.
 
 ## What You Are To Do:
 - [ ] Refer to the jQuery UI documentation and examples on the `jQuery UI` website.

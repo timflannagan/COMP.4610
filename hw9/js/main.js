@@ -9,15 +9,18 @@ Sources:
 2. Tuples in JS: https://stackoverflow.com/questions/20392782/a-list-of-tuples-in-javascript
 3. Draggable: https://www.tutorialspoint.com/jqueryui/jqueryui_draggable.htm
 4. Getting dragable values: https://stackoverflow.com/questions/21195737/jquery-ui-get-value-of-element-on-which-an-item-is-dropped
+5. Getting drag ID: https://stackoverflow.com/questions/6163510/jquery-draggables-get-id-of-dragable
+6. Removing element from JS array: https://love2dev.com/blog/javascript-remove-from-array/
 */
 
 var curr_word = [];
-var DEBUG = true;
+var curr_score = 0;
+var DEBUG = false;
 var REMAINING_LETTERS = 7;
 
 const NUM_TILES = 7;
 const SCORING_VALUES = [
-    /* Theres 26 letters, each with an assigned value, and a count */
+    /* Theres 27 letters, each with an assigned value, and a count */
     { "letter": "A", "count": 9, "value": 1 },
     { "letter": "B", "count": 2, "value": 3 },
     { "letter": "C", "count": 2, "value": 3 },
@@ -44,7 +47,7 @@ const SCORING_VALUES = [
     { "letter": "X", "count": 1, "value": 8 },
     { "letter": "Y", "count": 2, "value": 4 },
     { "letter": "Z", "count": 1, "value": 10 },
-    { "letter": "blank", "count": 2, "value": 0}
+    { "letter": "Blank", "count": 2, "value": 0}
 ]
 
 function create_board() {
@@ -66,38 +69,59 @@ function create_board() {
 }
 
 function reset_word() {
+    curr_word = [];
+    curr_score = 0;
+
     $(".scrabble-rack").empty();
+    document.getElementById('curr-word').innerHTML = "Current Word: ";
+    document.getElementById('word-score').innerHTML = "Current Score: 0";
+
     populated_board_tiles();
+    prepare_drop()
 }
 
 function prepare_drop() {
 
     $(".board").droppable({
         drop: function(event, ui) {
-            var letter = ui.draggable.prop('id');
-            var element = $(this).attr('id');
-            var number = element;
+            var letter = $(ui.draggable).attr('id')[5];
+            curr_word.push(letter);
 
             REMAINING_LETTERS--;
 
             if (DEBUG) {
-                console.log(letter, element, number, REMAINING_LETTERS);
+                console.log('Letter: ' + letter, 'and word: ' + curr_word);
+                console.log(REMAINING_LETTERS);
             }
+            document.getElementById('curr-word').innerHTML = "Current Word: " + curr_word;
+            calculate_word_score();
         },
 
         out: function (event, ui) {
+            var letter = $(ui.draggable).attr('id')[5];
+            var letter_index = curr_word.indexOf(letter);
+
+            console.log('Before word: ', curr_word);
+            curr_word.splice(letter_index, 1);
+            console.log('After word: ', curr_word);
+
             REMAINING_LETTERS++;
 
             if (DEBUG) {
+                console.log('You took off the letter: ' + letter + ' ' + letter_index);
                 console.log('REMAINING_LETTERS: ' + REMAINING_LETTERS);
             }
+            document.getElementById('curr-word').innerHTML = "Current Word: " + curr_word;
         },
     });
 
+    $(".scrabble-rack").droppable({
+        accept: '.tile'
+    });
 
     $(".tile").draggable({
         snap: ".board",
-        revert: "invalid",
+        revert: "invalid"
     });
 }
 
@@ -114,8 +138,34 @@ function populated_board_tiles() {
             console.log('Letter chosen: ' + letter);
         }
 
-        $(".scrabble-rack").append('<img class="tile" id="tile-' + letter + '"src="../externals/letters/' + letter + '.png">')
+        $(".scrabble-rack").append('<img class="tile" id="tile-' + letter + '"src="../externals/letters/' + letter + '.jpg">')
     }
+}
+
+function calculate_word_score() {
+    /* Iterate through each letter in the word, checking if that letter is a valid
+       entry in the scoring dictionary. If true, add that value to the total score.
+    */
+    for (var i = 0; i < curr_word.length; i++) {
+        for (var j = 0; j < SCORING_VALUES.length; j++) {
+            if (curr_word[i] == SCORING_VALUES[j]['letter']) {
+                curr_score += SCORING_VALUES[j]['value']
+
+                if (DEBUG) {
+                    console.log('New score: ' + curr_score);
+                }
+
+                document.getElementById('word-score').innerHTML = "Word Score: " + curr_score;
+            }
+        }
+    }
+}
+
+function update_after_submit() {
+    /* Simple helper function that updates head information about last word scoring */
+    document.getElementById("last-word").innerHTML = "Last Word: " + curr_word;
+    document.getElementById("last-score").innerHTML = "Last Score: " + curr_score;
+    reset_word()
 }
 
 $(document).ready(function () {
@@ -124,11 +174,10 @@ $(document).ready(function () {
 
     $("#reset-word").click(function () {
         reset_word()
-        prepare_drop()
     });
 
     $("#submit-word").click(function () {
-        document.getElementById("word-score").innerHTML = "Word Score: this ran";
+        update_after_submit()
     });
 
 });

@@ -54,6 +54,26 @@ h1 {
     background-position: center;
 }
 
+.scrabble-rack {
+    /* border: 5px solid black; */
+    min-height: 200px;
+    min-width: 250px;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("../externals/scrabble_rack.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.scrabble-rack img {
+    height: 80px;
+}
+
+
 button {
     width: 80px;
     height: 80px;
