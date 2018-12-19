@@ -1,6 +1,7 @@
 /*
 Name: Tim Flannagan
 File Creation Date: 12/08/18
+Last Modification: 12/18/18
 Assignment #9: Implementing a Bit of Scrabble with Drag-and-Drop
 File: js/main.js
 
@@ -16,6 +17,8 @@ Sources:
 */
 
 var row_obj = [];
+var curr_score = 0;
+var curr_word = "";
 
 var DEBUG = false;
 var REMAINING_LETTERS = 7;
@@ -23,7 +26,7 @@ var REMAINING_LETTERS = 7;
 const NUM_TILES = 7;
 const SCORING_VALUES = [
     /* Theres 27 letters, each with an assigned value, and a count.
-       Removing blanks for now.
+       Removing blanks for now. See source #2 for more info about tuples in JS.
      */
     { "letter": "A", "count": 9, "value": 1 },
     { "letter": "B", "count": 2, "value": 3 },
@@ -81,11 +84,14 @@ function print_arr(word) {
 }
 
 function prepare_drop() {
-    /* Initialize the drag-and-drop mechanics of the tiles/rack/board */
+    /* Initialize the drag-and-drop mechanics of the tiles/rack/board.
+       See source #3 for more informatoin about jQuery's droppable API.
+    */
     $(".board-tile").droppable({
         accept: '.tile',
 
         drop: function(event, ui) {
+            // see source #4/#5 for getting the draggable/droppable id
             var letter = $(ui.draggable).attr('id');
             var element_id = $(this).attr('id');
             var row_index = element_id[0];
@@ -116,11 +122,19 @@ function prepare_drop() {
     });
 
     $(".scrabble-rack").droppable({
-        accept: '.tile'
+        accept: '.tile',
+
+        drop: function(event, ui) {
+            console.log('something was dropped back into the rack');
+        },
+
+        out: function(event, ui) {
+            console.log('some was dragged out of the drop zone.');
+        }
     });
 
     $(".tile").draggable({
-        snap: ".board-tile",
+        snap: ".board-tile,.scrabble-rack",
         snapMode: "inner",
         revert: "invalid"
     });
@@ -178,8 +192,8 @@ function calculate_word_score() {
     /* Iterate through each letter in the word, checking if that letter is a valid
        entry in the scoring dictionary. If true, add that value to the total score.
     */
-    var curr_score = 0;
-    var curr_word = "";
+    curr_score = 0;
+    curr_word = "";
 
     for (var i = 0; i < row_obj.length; i++) {
         for (var j = 0; j < SCORING_VALUES.length; j++) {
@@ -192,6 +206,7 @@ function calculate_word_score() {
                 if (row_obj[i].type.includes('blank')) {
                     multiplier = 1;
                 } else {
+                    // at the moment, GUI only supports double-word
                     multiplier = 2;
                 }
 
@@ -202,7 +217,7 @@ function calculate_word_score() {
         }
     }
 
-    document.getElementById('curr-word').innerHTML = "Current Word: " + print_arr(curr_word);
+    document.getElementById('curr-word').innerHTML = "Current Word: " + curr_word;
 
     if (DEBUG) {
         console.log(row_obj);
@@ -230,7 +245,7 @@ function update_after_submit() {
         return false;
     }
 
-    document.getElementById("last-word").innerHTML = "Last Word: " + print_arr(curr_word);
+    document.getElementById("last-word").innerHTML = "Last Word: " + curr_word;
     document.getElementById("last-score").innerHTML = "Last Score: " + curr_score;
 
     reset_word()
