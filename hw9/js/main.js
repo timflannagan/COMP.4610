@@ -225,6 +225,7 @@ function calculate_word_score() {
 }
 
 function find_word_length() {
+    /* find the length of a word from letter tiles in the board. */
     var length = 0;
 
     for (var i = 0; i < row_obj.length; i++) {
@@ -237,9 +238,9 @@ function find_word_length() {
 }
 
 function update_after_submit() {
+    /* Simple helper function that updates head information about last word scoring */
     var curr_word_length = find_word_length()
 
-    /* Simple helper function that updates head information about last word scoring */
     if (curr_word_length < 2) {
         alert('You need to play at least two letters in order to submit a valid word for scoring! You are current at ' + curr_word_length + ' letters.');
         return false;
