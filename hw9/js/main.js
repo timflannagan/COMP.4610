@@ -15,10 +15,8 @@ Sources:
 8. Snapping to multiple elements: https://stackoverflow.com/questions/16257835/how-to-set-snap-to-multiple-elements
 */
 
-var curr_word_obj = [];
-var curr_word = [];
-var curr_score = 0;
 var row_obj = [];
+
 var DEBUG = false;
 var REMAINING_LETTERS = 7;
 
@@ -62,10 +60,6 @@ function clear_letter_id() {
 }
 
 function reset_word() {
-    curr_word_obj = [];
-    curr_word = [];
-    curr_score = 0;
-
     clear_letter_id()
 
     $(".scrabble-rack").empty();
@@ -86,16 +80,6 @@ function print_arr(word) {
     return rval;
 }
 
-function check_dict(dict_obj, lookup) {
-    for (var key in dict_obj) {
-        if (dict_obj[key].letter_id == lookup) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 function prepare_drop() {
     /* Initialize the drag-and-drop mechanics of the tiles/rack/board */
     $(".board-tile").droppable({
@@ -106,18 +90,7 @@ function prepare_drop() {
             var element_id = $(this).attr('id');
             var row_index = element_id[0];
 
-            var letter_dict = {
-                letter_id: letter,
-                letter: letter[5],
-                elem_id: element_id
-            }
-
-
             row_obj[row_index].letter_id = letter;
-            curr_word.push(letter[5]);
-            curr_word_obj.push(letter_dict);
-
-            document.getElementById('curr-word').innerHTML = "Current Word: " + print_arr(curr_word);
             calculate_word_score();
         },
 
@@ -138,8 +111,6 @@ function prepare_drop() {
                 return false;
             }
 
-            REMAINING_LETTERS++;
-            document.getElementById('curr-word').innerHTML = "Current Word: " + print_arr(curr_word);
             calculate_word_score()
         }
     });
@@ -178,7 +149,8 @@ function create_board() {
 
         row_obj[i] = {
             'type': id,
-            'letter_id': ''
+            'letter_id': '',
+            'img_id': img.id
         }
 
         board.appendChild(img);
@@ -206,16 +178,15 @@ function calculate_word_score() {
     /* Iterate through each letter in the word, checking if that letter is a valid
        entry in the scoring dictionary. If true, add that value to the total score.
     */
-    curr_score = 0;
-    curr_word = [];
+    var curr_score = 0;
+    var curr_word = "";
 
     for (var i = 0; i < row_obj.length; i++) {
         for (var j = 0; j < SCORING_VALUES.length; j++) {
             var multiplier = 1;
 
             if (row_obj[i].letter_id != "" && (row_obj[i].letter_id[5] == SCORING_VALUES[j].letter)) {
-                curr_word.push(row_obj[i].letter_id[5]);
-
+                curr_word += row_obj[i].letter_id[5];
 
                 // https://stackoverflow.com/questions/1789945/how-to-check-whether-a-string-contains-a-substring-in-javascript
                 if (row_obj[i].type.includes('blank')) {
@@ -231,15 +202,31 @@ function calculate_word_score() {
         }
     }
 
+    document.getElementById('curr-word').innerHTML = "Current Word: " + print_arr(curr_word);
+
     if (DEBUG) {
         console.log(row_obj);
     }
 }
 
+function find_word_length() {
+    var length = 0;
+
+    for (var i = 0; i < row_obj.length; i++) {
+        if (row_obj[i].letter_id != "") {
+            length++;
+        }
+    }
+
+    return length;
+}
+
 function update_after_submit() {
+    var curr_word_length = find_word_length()
+
     /* Simple helper function that updates head information about last word scoring */
-    if (curr_word_obj.length < 2) {
-        alert('You need to play at least two letters in order to submit a valid word for scoring!');
+    if (curr_word_length < 2) {
+        alert('You need to play at least two letters in order to submit a valid word for scoring! You are current at ' + curr_word_length + ' letters.');
         return false;
     }
 
